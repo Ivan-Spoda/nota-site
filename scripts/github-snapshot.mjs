@@ -19,21 +19,28 @@ async function get(path) {
 }
 
 async function contributors() {
-  const byLogin = new Map();
+  // anon=1 also returns commit authors with no linked GitHub account (type "Anonymous", name only),
+  // so their credit survives the refresh. Their emails are never written out.
+  const byKey = new Map();
   for (const repo of REPOS) {
     for (let page = 1; ; page++) {
-      const list = await get(`repos/${OWNER}/${repo}/contributors?per_page=100&page=${page}`);
+      const list = await get(`repos/${OWNER}/${repo}/contributors?anon=1&per_page=100&page=${page}`);
       if (!list || !list.length) break;
       for (const c of list) {
-        if (c.type !== "User" || c.login.endsWith("[bot]")) continue;
-        const prev = byLogin.get(c.login);
+        const user = c.type === "User";
+        const name = user ? c.login : c.name;
+        if (!name || /\[bot\]$/.test(name) || (!user && c.type !== "Anonymous")) continue;
+        const key = user ? c.login : `anon:${name}`;
+        const prev = byKey.get(key);
         if (prev) prev.contributions += c.contributions;
-        else byLogin.set(c.login, { name: c.login, login: c.login, avatar: c.avatar_url, url: c.html_url, contributions: c.contributions });
+        else byKey.set(key, user
+          ? { name, login: c.login, avatar: c.avatar_url, url: c.html_url, contributions: c.contributions }
+          : { name, contributions: c.contributions });
       }
       if (list.length < 100) break;
     }
   }
-  return [...byLogin.values()].sort((a, b) => b.contributions - a.contributions || a.login.localeCompare(b.login));
+  return [...byKey.values()].sort((a, b) => b.contributions - a.contributions || a.name.localeCompare(b.name));
 }
 
 try {
