@@ -7,6 +7,8 @@ import { readFileSync, writeFileSync } from "node:fs";
 
 const OUT = new URL("../src/data/github.json", import.meta.url);
 const OWNER = "nota-daw";
+// Coding assistants credited as co-authors, left out of the contributor list.
+const HIDDEN = new Set(["claude"]);
 const REPOS = ["nota", "nota-docs", "nota-site", "nota-plugins-registry", "nota-samples-registry", "nota-models"];
 const headers = { Accept: "application/vnd.github+json", "User-Agent": "nota-site-build" };
 if (process.env.GITHUB_TOKEN) headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
@@ -29,7 +31,7 @@ async function contributors() {
       for (const c of list) {
         const user = c.type === "User";
         const name = user ? c.login : c.name;
-        if (!name || name.endsWith("[bot]") || (!user && c.type !== "Anonymous")) continue;
+        if (!name || name.endsWith("[bot]") || HIDDEN.has(name.toLowerCase()) || (!user && c.type !== "Anonymous")) continue;
         const key = user ? c.login : `anon:${name}`;
         const prev = byKey.get(key);
         if (prev) prev.contributions += c.contributions;

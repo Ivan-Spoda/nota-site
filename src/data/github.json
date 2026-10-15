@@ -1,20 +1,65 @@
 {
- "fetchedAt": null,
+ "fetchedAt": "2026-10-15T19:11:14.258Z",
  "release": {
   "version": "0.53.1",
-  "date": null,
-  "assets": []
+  "date": "2026-10-14T22:01:35Z",
+  "assets": [
+   {
+    "name": "Nota-0.53.1-aarch64.AppImage",
+    "size": 62880264,
+    "browser_download_url": "https://github.com/nota-daw/nota/releases/download/v0.53.1/Nota-0.53.1-aarch64.AppImage"
+   },
+   {
+    "name": "Nota-0.53.1-arm64.dmg",
+    "size": 74010094,
+    "browser_download_url": "https://github.com/nota-daw/nota/releases/download/v0.53.1/Nota-0.53.1-arm64.dmg"
+   },
+   {
+    "name": "Nota-0.53.1-x86_64.AppImage",
+    "size": 66038264,
+    "browser_download_url": "https://github.com/nota-daw/nota/releases/download/v0.53.1/Nota-0.53.1-x86_64.AppImage"
+   },
+   {
+    "name": "Nota-0.53.1-x86_64.dmg",
+    "size": 77224921,
+    "browser_download_url": "https://github.com/nota-daw/nota/releases/download/v0.53.1/Nota-0.53.1-x86_64.dmg"
+   },
+   {
+    "name": "Nota-Setup-0.53.1-arm64.exe",
+    "size": 47927803,
+    "browser_download_url": "https://github.com/nota-daw/nota/releases/download/v0.53.1/Nota-Setup-0.53.1-arm64.exe"
+   },
+   {
+    "name": "Nota-Setup-0.53.1-x64.exe",
+    "size": 51804159,
+    "browser_download_url": "https://github.com/nota-daw/nota/releases/download/v0.53.1/Nota-Setup-0.53.1-x64.exe"
+   }
+  ]
  },
  "contributors": [
   {
-   "name": "Egor Khindikaynen",
-   "contributions": 284
+   "name": "ambertape",
+   "login": "ambertape",
+   "avatar": "https://avatars.githubusercontent.com/u/68152775?v=4",
+   "url": "https://github.com/ambertape",
+   "contributions": 293
   },
   {
-   "name": "Chris Laupama",
+   "name": "chrislaupama",
    "login": "chrislaupama",
-   "avatar": "https://github.com/chrislaupama.png",
+   "avatar": "https://avatars.githubusercontent.com/u/42254688?v=4",
    "url": "https://github.com/chrislaupama",
+   "contributions": 14
+  },
+  {
+   "name": "Ivan-Spoda",
+   "login": "Ivan-Spoda",
+   "avatar": "https://avatars.githubusercontent.com/u/131347823?v=4",
+   "url": "https://github.com/Ivan-Spoda",
+   "contributions": 2
+  },
+  {
+   "name": "Egor Khindikaynen",
    "contributions": 1
   }
  ]

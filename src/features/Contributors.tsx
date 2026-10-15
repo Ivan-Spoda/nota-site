@@ -1,7 +1,9 @@
 import { GITHUB } from "../lib/github";
 
 // Everyone with commits across the nota-daw repositories, from the build-time GitHub snapshot.
-const people = GITHUB.contributors;
+// Coding assistants credited as co-authors are not people, so they are left out.
+const HIDDEN = new Set(["claude"]);
+const people = GITHUB.contributors.filter((c) => !HIDDEN.has((c.login ?? c.name).toLowerCase()));
 const initials = (name: string) => name.split(/[\s_-]+/).filter(Boolean).slice(0, 2).map((w) => w[0].toUpperCase()).join("");
 
 export function Contributors() {

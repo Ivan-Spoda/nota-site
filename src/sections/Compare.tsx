@@ -1,6 +1,8 @@
 import { Fragment } from "react";
+import type { Release } from "../lib/release";
 
-const RIVALS = [["Features"], ["Nota", "0.43"], ["Ableton Live", "12"], ["Logic Pro", "11"], ["Bitwig Studio", "5"]];
+// Nota's column shows the latest release (filled in by Compare); the rest are the versions compared against.
+const RIVALS = [["Features"], ["Nota", ""], ["Ableton Live", "12"], ["Logic Pro", "11"], ["Bitwig Studio", "5"]];
 const Y = "✓", NO = "—";
 const COMPARE: [string, string[]][] = [
   ["Price", ["Free", "$99 – $749", "$199.99", "$99 – $399"]],
@@ -16,7 +18,7 @@ const COMPARE: [string, string[]][] = [
   ["One-click free plug-in installs", [Y, NO, NO, NO]],
   ["VST3 hosting", [Y, Y, NO, Y]],
 ];
-const rivals = RIVALS.map(([name, sub], i) => ({ name, sub, bg: i !== 1 ? "transparent" : "var(--accentSoft)", ink: i !== 1 ? "var(--ink2)" : "var(--ink)" }));
+const rivalsFor = (version: string) => RIVALS.map(([name, sub], i) => ({ name, sub: i === 1 ? version : sub, bg: i !== 1 ? "transparent" : "var(--accentSoft)", ink: i !== 1 ? "var(--ink2)" : "var(--ink)" }));
 const compare = COMPARE.map(([label, cells]) => ({
   label,
   cells: cells.map((t, i) => ({
@@ -25,7 +27,8 @@ const compare = COMPARE.map(([label, cells]) => ({
   })),
 }));
 
-export function Compare() {
+export function Compare({ release }: { release: Release }) {
+  const rivals = rivalsFor(release.version);
   return (
     <section id="compare" style={{ maxWidth: '1200px', margin: '0 auto', padding: '140px 28px 0', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', gap: '40px' }}>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '720px' }}>

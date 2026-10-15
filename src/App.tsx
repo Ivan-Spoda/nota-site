@@ -16,7 +16,7 @@ export function App() {
       <Nav theme={theme} onTheme={setTheme} />
       <Hero release={release} />
       <Features />
-      <Compare />
+      <Compare release={release} />
       <Download release={release} />
       <Footer />
     </div>
