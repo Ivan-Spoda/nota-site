@@ -2,7 +2,7 @@ import { LOGO } from "../lib/brand";
 
 export function Footer() {
   return (
-    <footer style={{ borderTop: '1px solid var(--hair)' }}>
+    <footer style={{ borderTop: '1px solid var(--line)' }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '28px', display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '20px', boxSizing: 'border-box' }}>
         <img src={LOGO} alt="" width="20" height="20" style={{ display: 'block', borderRadius: '5px' }} />
         <span style={{ fontSize: '13px', color: 'var(--ink3)' }}>Nota · free, open-source DAW</span>

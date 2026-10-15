@@ -15,30 +15,30 @@ export function Download({ release }: { release: Release }) {
     return {
       os: META[main].os, arch: META[main].arch, file: d.file, size: d.size, href: d.href, yours,
       hasAlt: !!ad, altHref: ad ? ad.href : "", altLabel: ad && altKey ? META[altKey].arch.split(" ·")[0] + " build " + ad.size : "",
-      bg: yours ? "var(--brassSoft)" : "var(--surface)", edge: yours ? "var(--brassEdge)" : "var(--line)",
-      btnBg: yours ? "var(--brass)" : "transparent", btnInk: yours ? "var(--onBrass)" : "var(--ink2)", btnEdge: yours ? "var(--brass)" : "var(--line)",
+      bg: yours ? "var(--accentSoft)" : "var(--surface)", edge: yours ? "var(--accentEdge)" : "var(--line)",
+      btnBg: yours ? "var(--accent)" : "transparent", btnInk: yours ? "var(--onAccent)" : "var(--ink2)", btnEdge: yours ? "var(--accent)" : "var(--line)",
     };
   });
   return (
     <section id="download" style={{ maxWidth: '1200px', margin: '0 auto', padding: '140px 28px 120px', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', gap: '40px' }}>
       <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'flex-end', justifyContent: 'space-between', gap: '24px' }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '720px' }}>
-          <div style={{ fontFamily: "'Geist Mono',monospace", fontSize: '12px', letterSpacing: '.16em', color: 'var(--eyebrow)' }}>03 · DOWNLOAD</div>
+          <div style={{ fontSize: '12px', fontWeight: '500', color: 'var(--eyebrow)' }}>03 · Download</div>
           <h2 style={{ margin: '0', fontSize: 'clamp(32px,4.4vw,52px)', fontWeight: '600', letterSpacing: '-.03em', lineHeight: '1.05' }}>Get Nota {version}</h2>
           <p style={{ margin: '0', fontSize: '16px', lineHeight: '1.6', color: 'var(--ink3)' }}>{releaseNote}</p>
         </div>
-        <a href="https://github.com/nota-daw/nota/releases" target="_blank" rel="noopener" style={{ fontSize: '14px', fontWeight: '600', borderBottom: '1px solid var(--brassEdge)', paddingBottom: '2px' }}>All releases and changelogs →</a>
+        <a href="https://github.com/nota-daw/nota/releases" target="_blank" rel="noopener" style={{ fontSize: '14px', fontWeight: '600', borderBottom: '1px solid var(--accentEdge)', paddingBottom: '2px' }}>All releases and changelogs →</a>
       </div>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(min(100%,200px),1fr))', gap: '12px' }}>
         {downloads.map((d, dI) => (
           <Fragment key={dI}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-              <a className="h10" href={d.href} style={{ flex: '1', display: 'flex', flexDirection: 'column', gap: '22px', padding: '22px', borderRadius: '10px', background: d.bg, border: `1px solid ${d.edge}`, color: 'var(--ink)', boxSizing: 'border-box' }}>
+              <a className="h10" href={d.href} style={{ flex: '1', display: 'flex', flexDirection: 'column', gap: '22px', padding: '22px', borderRadius: '3px', background: d.bg, border: `1px solid ${d.edge}`, color: 'var(--ink)', boxSizing: 'border-box' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                   <span style={{ fontSize: '18px', fontWeight: '600' }}>{d.os}</span>
                   {d.yours ? (
                     <>
-                      <span style={{ fontFamily: "'Geist Mono',monospace", fontSize: '10px', letterSpacing: '.08em', padding: '3px 7px', borderRadius: '3px', background: 'var(--brass)', color: 'var(--onBrass)' }}>YOUR SYSTEM</span>
+                      <span style={{ fontSize: '11px', fontWeight: '600', padding: '2px 7px', borderRadius: '3px', background: 'var(--accent)', color: 'var(--onAccent)' }}>Your system</span>
                     </>
                   ) : null}
                 </div>
@@ -46,7 +46,7 @@ export function Download({ release }: { release: Release }) {
                   <span style={{ fontSize: '13px', color: 'var(--ink3)' }}>{d.arch}</span>
                   <span style={{ fontFamily: "'Geist Mono',monospace", fontSize: '11px', color: 'var(--ink4)', overflowWrap: 'anywhere' }}>{d.file}</span>
                 </div>
-                <span style={{ height: '36px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '5px', borderRadius: '6px', fontSize: '13px', fontWeight: '600', background: d.btnBg, color: d.btnInk, border: `1px solid ${d.btnEdge}`, boxSizing: 'border-box' }}>Download {d.size}</span>
+                <span style={{ height: '36px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '5px', borderRadius: '3px', fontSize: '13px', fontWeight: '600', background: d.btnBg, color: d.btnInk, border: `1px solid ${d.btnEdge}`, boxSizing: 'border-box' }}>Download {d.size}</span>
               </a>
               {d.hasAlt ? (
                 <>

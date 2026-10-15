@@ -1,5 +1,5 @@
 import { useRelease } from "./lib/release";
-import { useTheme } from "./lib/theme";
+import { ThemeContext, useTheme } from "./lib/theme";
 import { Nav } from "./sections/Nav";
 import { Hero } from "./sections/Hero";
 import { Features } from "./sections/Features";
@@ -11,6 +11,7 @@ export function App() {
   const [theme, setTheme] = useTheme();
   const release = useRelease();
   return (
+    <ThemeContext.Provider value={theme}>
     <div style={{ minHeight: "100vh", background: "var(--bg)", color: "var(--ink)" }}>
       <Nav theme={theme} onTheme={setTheme} />
       <Hero release={release} />
@@ -19,5 +20,6 @@ export function App() {
       <Download release={release} />
       <Footer />
     </div>
+    </ThemeContext.Provider>
   );
 }

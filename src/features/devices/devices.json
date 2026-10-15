@@ -5,15 +5,15 @@
   "views": [
    {
     "label": "Osc",
-    "src": "synth-0.webp"
+    "src": "synth-0.avif"
    },
    {
     "label": "Env",
-    "src": "synth-1.webp"
+    "src": "synth-1.avif"
    },
    {
     "label": "Filter",
-    "src": "synth-2.webp"
+    "src": "synth-2.avif"
    }
   ]
  },
@@ -23,27 +23,27 @@
   "views": [
    {
     "label": "Osc",
-    "src": "volt-0.webp"
+    "src": "volt-0.avif"
    },
    {
     "label": "Filter",
-    "src": "volt-1.webp"
+    "src": "volt-1.avif"
    },
    {
     "label": "Env",
-    "src": "volt-2.webp"
+    "src": "volt-2.avif"
    },
    {
     "label": "LFO",
-    "src": "volt-3.webp"
+    "src": "volt-3.avif"
    },
    {
     "label": "Mod",
-    "src": "volt-4.webp"
+    "src": "volt-4.avif"
    },
    {
     "label": "Macro",
-    "src": "volt-5.webp"
+    "src": "volt-5.avif"
    }
   ]
  },
@@ -53,27 +53,27 @@
   "views": [
    {
     "label": "Osc",
-    "src": "aurora-0.webp"
+    "src": "aurora-0.avif"
    },
    {
     "label": "Filter",
-    "src": "aurora-1.webp"
+    "src": "aurora-1.avif"
    },
    {
     "label": "Env",
-    "src": "aurora-2.webp"
+    "src": "aurora-2.avif"
    },
    {
     "label": "LFO",
-    "src": "aurora-3.webp"
+    "src": "aurora-3.avif"
    },
    {
     "label": "Mod",
-    "src": "aurora-4.webp"
+    "src": "aurora-4.avif"
    },
    {
     "label": "FX",
-    "src": "aurora-5.webp"
+    "src": "aurora-5.avif"
    }
   ]
  },
@@ -83,15 +83,15 @@
   "views": [
    {
     "label": "Operators",
-    "src": "operator-0.webp"
+    "src": "operator-0.avif"
    },
    {
     "label": "Algorithm",
-    "src": "operator-1.webp"
+    "src": "operator-1.avif"
    },
    {
-    "label": "Filter Amp",
-    "src": "operator-2.webp"
+    "label": "Filter \u00b7 Amp",
+    "src": "operator-2.avif"
    }
   ]
  },
@@ -101,11 +101,11 @@
   "views": [
    {
     "label": "Signal",
-    "src": "bass-0.webp"
+    "src": "bass-0.avif"
    },
    {
     "label": "Mod",
-    "src": "bass-1.webp"
+    "src": "bass-1.avif"
    }
   ]
  },
@@ -114,12 +114,16 @@
   "category": "Instruments",
   "views": [
    {
-    "label": "No source",
-    "src": "flux-0.webp"
+    "label": "Init",
+    "src": "flux-0.avif"
    },
    {
-    "label": "React",
-    "src": "flux-1.webp"
+    "label": "Moog Lead",
+    "src": "flux-1.avif"
+   },
+   {
+    "label": "Filter Chase",
+    "src": "flux-2.avif"
    }
   ]
  },
@@ -129,23 +133,23 @@
   "views": [
    {
     "label": "Grain",
-    "src": "grain-0.webp"
+    "src": "grain-0.avif"
    },
    {
     "label": "Pitch",
-    "src": "grain-1.webp"
+    "src": "grain-1.avif"
    },
    {
     "label": "Variation",
-    "src": "grain-2.webp"
+    "src": "grain-2.avif"
    },
    {
     "label": "Filter",
-    "src": "grain-3.webp"
+    "src": "grain-3.avif"
    },
    {
     "label": "Amp",
-    "src": "grain-4.webp"
+    "src": "grain-4.avif"
    }
   ]
  },
@@ -155,15 +159,15 @@
   "views": [
    {
     "label": "Oscillators",
-    "src": "pentad-0.webp"
+    "src": "pentad-0.avif"
    },
    {
-    "label": "Filter Amp",
-    "src": "pentad-1.webp"
+    "label": "Filter \u00b7 Amp",
+    "src": "pentad-1.avif"
    },
    {
     "label": "Poly Mod",
-    "src": "pentad-2.webp"
+    "src": "pentad-2.avif"
    }
   ]
  },
@@ -172,32 +176,24 @@
   "category": "Instruments",
   "views": [
    {
-    "label": "Osc Mix",
-    "src": "consort-0.webp"
+    "label": "Osc \u00b7 Mix",
+    "src": "consort-0.avif"
    },
    {
-    "label": "Patch matrix",
-    "src": "consort-1.webp"
+    "label": "Filters \u00b7 Env",
+    "src": "consort-1.avif"
    },
    {
-    "label": "Patch cables",
-    "src": "consort-2.webp"
-   },
-   {
-    "label": "Patch overlay",
-    "src": "consort-3.webp"
-   },
-   {
-    "label": "Filters Env",
-    "src": "consort-4.webp"
-   },
-   {
-    "label": "LFO Delay",
-    "src": "consort-5.webp"
+    "label": "LFO \u00b7 Delay",
+    "src": "consort-2.avif"
    },
    {
     "label": "Seq",
-    "src": "consort-6.webp"
+    "src": "consort-3.avif"
+   },
+   {
+    "label": "Patch",
+    "src": "consort-4.avif"
    }
   ]
  },
@@ -206,8 +202,12 @@
   "category": "Instruments",
   "views": [
    {
-    "label": "Card",
-    "src": "monolith-0.webp"
+    "label": "Controllers \u00b7 Osc Bank",
+    "src": "monolith-0.avif"
+   },
+   {
+    "label": "Modifiers",
+    "src": "monolith-1.avif"
    }
   ]
  },
@@ -217,11 +217,25 @@
   "views": [
    {
     "label": "Exciter",
-    "src": "physical-0.webp"
+    "src": "physical-0.avif"
    },
    {
     "label": "Resonator",
-    "src": "physical-1.webp"
+    "src": "physical-1.avif"
+   }
+  ]
+ },
+ {
+  "name": "Keys",
+  "category": "Instruments",
+  "views": [
+   {
+    "label": "Sound",
+    "src": "keys-0.avif"
+   },
+   {
+    "label": "FX",
+    "src": "keys-1.avif"
    }
   ]
  },
@@ -231,11 +245,11 @@
   "views": [
    {
     "label": "Balls",
-    "src": "pendulum-0.webp"
+    "src": "pendulum-0.avif"
    },
    {
     "label": "Voice",
-    "src": "pendulum-1.webp"
+    "src": "pendulum-1.avif"
    }
   ]
  },
@@ -245,19 +259,37 @@
   "views": [
    {
     "label": "Sample",
-    "src": "sampler-0.webp"
+    "src": "sampler-0.avif"
    },
    {
     "label": "Pitch",
-    "src": "sampler-1.webp"
+    "src": "sampler-1.avif"
    },
    {
     "label": "Env",
-    "src": "sampler-2.webp"
+    "src": "sampler-2.avif"
    },
    {
     "label": "Filter",
-    "src": "sampler-3.webp"
+    "src": "sampler-3.avif"
+   }
+  ]
+ },
+ {
+  "name": "Mosaic",
+  "category": "Instruments",
+  "views": [
+   {
+    "label": "Zones",
+    "src": "mosaic-0.avif"
+   },
+   {
+    "label": "Sample",
+    "src": "mosaic-1.avif"
+   },
+   {
+    "label": "Env",
+    "src": "mosaic-2.avif"
    }
   ]
  },
@@ -267,15 +299,19 @@
   "views": [
    {
     "label": "Pads",
-    "src": "drum-rack-0.webp"
+    "src": "drum-rack-0.avif"
    },
    {
     "label": "Mixer",
-    "src": "drum-rack-1.webp"
+    "src": "drum-rack-1.avif"
+   },
+   {
+    "label": "Chain",
+    "src": "drum-rack-2.avif"
    },
    {
     "label": "Macro",
-    "src": "drum-rack-2.webp"
+    "src": "drum-rack-3.avif"
    }
   ]
  },
@@ -284,16 +320,16 @@
   "category": "Instruments",
   "views": [
    {
-    "label": "Kick synth",
-    "src": "rhythm-0.webp"
+    "label": "Kick",
+    "src": "rhythm-0.avif"
    },
    {
-    "label": "Clap sample",
-    "src": "rhythm-1.webp"
+    "label": "Snare",
+    "src": "rhythm-1.avif"
    },
    {
-    "label": "Macro",
-    "src": "rhythm-2.webp"
+    "label": "Clap",
+    "src": "rhythm-2.avif"
    }
   ]
  },
@@ -303,15 +339,15 @@
   "views": [
    {
     "label": "Init",
-    "src": "eq-3-0.webp"
+    "src": "eq-3-0.avif"
    },
    {
-    "label": "Low Kill",
-    "src": "eq-3-1.webp"
+    "label": "Breakdown Thin",
+    "src": "eq-3-1.avif"
    },
    {
-    "label": "Mid Scoop \u00b7 48 dB",
-    "src": "eq-3-2.webp"
+    "label": "Mud Cut",
+    "src": "eq-3-2.avif"
    }
   ]
  },
@@ -320,16 +356,16 @@
   "category": "Audio effects",
   "views": [
    {
-    "label": "Mix",
-    "src": "eq-8-0.webp"
+    "label": "Init",
+    "src": "eq-8-0.avif"
    },
    {
-    "label": "Vocal \u00b7 M/S",
-    "src": "eq-8-1.webp"
+    "label": "Vocal Wide",
+    "src": "eq-8-1.avif"
    },
    {
-    "label": "Master \u00b7 48 dB",
-    "src": "eq-8-2.webp"
+    "label": "Electric Guitar Cab",
+    "src": "eq-8-2.avif"
    }
   ]
  },
@@ -338,16 +374,16 @@
   "category": "Audio effects",
   "views": [
    {
-    "label": "Vocal \u00b7 Duck",
-    "src": "dynamic-eq-0.webp"
+    "label": "Init",
+    "src": "dynamic-eq-0.avif"
    },
    {
-    "label": "Bus \u00b7 Lift",
-    "src": "dynamic-eq-1.webp"
+    "label": "Harshness Guard",
+    "src": "dynamic-eq-1.avif"
    },
    {
-    "label": "Static \u00b7 Solo",
-    "src": "dynamic-eq-2.webp"
+    "label": "Bass Clarity",
+    "src": "dynamic-eq-2.avif"
    }
   ]
  },
@@ -357,15 +393,15 @@
   "views": [
    {
     "label": "Curve",
-    "src": "compressor-0.webp"
+    "src": "compressor-0.avif"
    },
    {
     "label": "Motion",
-    "src": "compressor-1.webp"
+    "src": "compressor-1.avif"
    },
    {
     "label": "Sidechain",
-    "src": "compressor-2.webp"
+    "src": "compressor-2.avif"
    }
   ]
  },
@@ -375,15 +411,15 @@
   "views": [
    {
     "label": "Level",
-    "src": "ceiling-0.webp"
+    "src": "ceiling-0.avif"
    },
    {
     "label": "Reduction",
-    "src": "ceiling-1.webp"
+    "src": "ceiling-1.avif"
    },
    {
     "label": "Loudness",
-    "src": "ceiling-2.webp"
+    "src": "ceiling-2.avif"
    }
   ]
  },
@@ -392,16 +428,16 @@
   "category": "Audio effects",
   "views": [
    {
-    "label": "Podcast",
-    "src": "level-0.webp"
+    "label": "Init",
+    "src": "level-0.avif"
    },
    {
-    "label": "Streaming",
-    "src": "level-1.webp"
+    "label": "Cinema Dialogue \u221227",
+    "src": "level-1.avif"
    },
    {
-    "label": "Broadcast \u00b7 Manual",
-    "src": "level-2.webp"
+    "label": "Gentle Rider",
+    "src": "level-2.avif"
    }
   ]
  },
@@ -411,15 +447,15 @@
   "views": [
    {
     "label": "Bands",
-    "src": "prism-0.webp"
+    "src": "prism-0.avif"
    },
    {
     "label": "Band detail",
-    "src": "prism-1.webp"
+    "src": "prism-1.avif"
    },
    {
     "label": "Time",
-    "src": "prism-2.webp"
+    "src": "prism-2.avif"
    }
   ]
  },
@@ -428,16 +464,12 @@
   "category": "Audio effects",
   "views": [
    {
-    "label": "Hall",
-    "src": "reverb-0.webp"
+    "label": "Space",
+    "src": "reverb-0.avif"
    },
    {
-    "label": "Plate",
-    "src": "reverb-1.webp"
-   },
-   {
-    "label": "Freeze",
-    "src": "reverb-2.webp"
+    "label": "Tone \u00b7 Mod",
+    "src": "reverb-1.avif"
    }
   ]
  },
@@ -447,15 +479,15 @@
   "views": [
    {
     "label": "Convolution",
-    "src": "chamber-0.webp"
+    "src": "chamber-0.avif"
    },
    {
     "label": "Algorithm",
-    "src": "chamber-1.webp"
+    "src": "chamber-1.avif"
    },
    {
-    "label": "EQ Mod",
-    "src": "chamber-2.webp"
+    "label": "EQ \u00b7 Mod",
+    "src": "chamber-2.avif"
    }
   ]
  },
@@ -464,16 +496,12 @@
   "category": "Audio effects",
   "views": [
    {
-    "label": "Sync",
-    "src": "delay-0.webp"
+    "label": "Time",
+    "src": "delay-0.avif"
    },
    {
-    "label": "ms",
-    "src": "delay-1.webp"
-   },
-   {
-    "label": "Freeze",
-    "src": "delay-2.webp"
+    "label": "Loop \u00b7 Wow",
+    "src": "delay-1.avif"
    }
   ]
  },
@@ -482,16 +510,16 @@
   "category": "Audio effects",
   "views": [
    {
-    "label": "Classic duo",
-    "src": "chorus-0.webp"
+    "label": "Init",
+    "src": "chorus-0.avif"
    },
    {
-    "label": "Ensemble",
-    "src": "chorus-1.webp"
+    "label": "Tri-Chorus",
+    "src": "chorus-1.avif"
    },
    {
-    "label": "Vibrato",
-    "src": "chorus-2.webp"
+    "label": "Jet Chorus",
+    "src": "chorus-2.avif"
    }
   ]
  },
@@ -500,16 +528,16 @@
   "category": "Audio effects",
   "views": [
    {
-    "label": "Classic 4-stage",
-    "src": "phaser-0.webp"
+    "label": "Init",
+    "src": "phaser-0.avif"
    },
    {
-    "label": "Deep 12-stage",
-    "src": "phaser-1.webp"
+    "label": "Resonant Twelve",
+    "src": "phaser-1.avif"
    },
    {
-    "label": "Negative",
-    "src": "phaser-2.webp"
+    "label": "Triplet Flutter",
+    "src": "phaser-2.avif"
    }
   ]
  },
@@ -518,16 +546,16 @@
   "category": "Audio effects",
   "views": [
    {
-    "label": "Classic jet",
-    "src": "flanger-0.webp"
+    "label": "Init",
+    "src": "flanger-0.avif"
    },
    {
-    "label": "Negative sweep",
-    "src": "flanger-1.webp"
+    "label": "Negative Jet",
+    "src": "flanger-1.avif"
    },
    {
-    "label": "Metallic",
-    "src": "flanger-2.webp"
+    "label": "Eighth Pulse",
+    "src": "flanger-2.avif"
    }
   ]
  },
@@ -536,16 +564,16 @@
   "category": "Audio effects",
   "views": [
    {
-    "label": "Auto-pan",
-    "src": "orbit-0.webp"
+    "label": "Init",
+    "src": "orbit-0.avif"
    },
    {
-    "label": "Tempo sync",
-    "src": "orbit-1.webp"
+    "label": "Quarter Pan",
+    "src": "orbit-1.avif"
    },
    {
-    "label": "Tremolo",
-    "src": "orbit-2.webp"
+    "label": "Sidechain Pump",
+    "src": "orbit-2.avif"
    }
   ]
  },
@@ -555,15 +583,15 @@
   "views": [
    {
     "label": "Filter",
-    "src": "auto-filter-0.webp"
+    "src": "auto-filter-0.avif"
    },
    {
     "label": "Envelope",
-    "src": "auto-filter-1.webp"
+    "src": "auto-filter-1.avif"
    },
    {
     "label": "LFO",
-    "src": "auto-filter-2.webp"
+    "src": "auto-filter-2.avif"
    }
   ]
  },
@@ -573,15 +601,15 @@
   "views": [
    {
     "label": "Trace",
-    "src": "auto-shift-0.webp"
+    "src": "auto-shift-0.avif"
    },
    {
     "label": "Scale",
-    "src": "auto-shift-1.webp"
+    "src": "auto-shift-1.avif"
    },
    {
     "label": "MIDI",
-    "src": "auto-shift-2.webp"
+    "src": "auto-shift-2.avif"
    }
   ]
  },
@@ -591,15 +619,15 @@
   "views": [
    {
     "label": "Init",
-    "src": "forge-0.webp"
+    "src": "forge-0.avif"
    },
    {
-    "label": "Parallel \u00b7 Drum bus",
-    "src": "forge-1.webp"
+    "label": "Fuzz Wall",
+    "src": "forge-1.avif"
    },
    {
-    "label": "Multiband \u00b7 Master",
-    "src": "forge-2.webp"
+    "label": "Wide Air",
+    "src": "forge-2.avif"
    }
   ]
  },
@@ -609,15 +637,15 @@
   "views": [
    {
     "label": "Amp",
-    "src": "valve-0.webp"
+    "src": "valve-0.avif"
    },
    {
     "label": "Cab",
-    "src": "valve-1.webp"
+    "src": "valve-1.avif"
    },
    {
     "label": "Harmonics",
-    "src": "valve-2.webp"
+    "src": "valve-2.avif"
    }
   ]
  },
@@ -627,15 +655,15 @@
   "views": [
    {
     "label": "Curve",
-    "src": "vintage-0.webp"
+    "src": "vintage-0.avif"
    },
    {
     "label": "Wear",
-    "src": "vintage-1.webp"
+    "src": "vintage-1.avif"
    },
    {
     "label": "Output",
-    "src": "vintage-2.webp"
+    "src": "vintage-2.avif"
    }
   ]
  },
@@ -645,15 +673,15 @@
   "views": [
    {
     "label": "Quantiser",
-    "src": "crush-0.webp"
+    "src": "crush-0.avif"
    },
    {
     "label": "Spectrum",
-    "src": "crush-1.webp"
+    "src": "crush-1.avif"
    },
    {
     "label": "Transfer",
-    "src": "crush-2.webp"
+    "src": "crush-2.avif"
    }
   ]
  },
@@ -663,15 +691,15 @@
   "views": [
    {
     "label": "Timeline",
-    "src": "beat-repeat-0.webp"
+    "src": "beat-repeat-0.avif"
    },
    {
     "label": "Slices",
-    "src": "beat-repeat-1.webp"
+    "src": "beat-repeat-1.avif"
    },
    {
     "label": "Filter",
-    "src": "beat-repeat-2.webp"
+    "src": "beat-repeat-2.avif"
    }
   ]
  },
@@ -681,15 +709,19 @@
   "views": [
    {
     "label": "Signal",
-    "src": "shutter-0.webp"
+    "src": "shutter-0.avif"
    },
    {
     "label": "Envelope",
-    "src": "shutter-1.webp"
+    "src": "shutter-1.avif"
    },
    {
     "label": "Sidechain",
-    "src": "shutter-2.webp"
+    "src": "shutter-2.avif"
+   },
+   {
+    "label": "Pattern",
+    "src": "shutter-3.avif"
    }
   ]
  },
@@ -698,8 +730,16 @@
   "category": "Audio effects",
   "views": [
    {
-    "label": "Card",
-    "src": "strata-0.webp"
+    "label": "Init",
+    "src": "strata-0.avif"
+   },
+   {
+    "label": "Ambient Decay",
+    "src": "strata-1.avif"
+   },
+   {
+    "label": "Reverse Tape",
+    "src": "strata-2.avif"
    }
   ]
  },
@@ -709,19 +749,15 @@
   "views": [
    {
     "label": "Spectrum",
-    "src": "lens-0.webp"
+    "src": "lens-0.avif"
    },
    {
     "label": "Scope",
-    "src": "lens-1.webp"
-   },
-   {
-    "label": "Cursors",
-    "src": "lens-2.webp"
+    "src": "lens-1.avif"
    },
    {
     "label": "Waterfall",
-    "src": "lens-3.webp"
+    "src": "lens-2.avif"
    }
   ]
  },
@@ -731,15 +767,15 @@
   "views": [
    {
     "label": "Field",
-    "src": "utility-0.webp"
+    "src": "utility-0.avif"
    },
    {
     "label": "Mono",
-    "src": "utility-1.webp"
+    "src": "utility-1.avif"
    },
    {
     "label": "Levels",
-    "src": "utility-2.webp"
+    "src": "utility-2.avif"
    }
   ]
  },
@@ -748,8 +784,12 @@
   "category": "MIDI effects",
   "views": [
    {
-    "label": "Arp",
-    "src": "arp-0.webp"
+    "label": "Pattern",
+    "src": "arp-0.avif"
+   },
+   {
+    "label": "Groove",
+    "src": "arp-1.avif"
    }
   ]
  },
@@ -758,8 +798,16 @@
   "category": "MIDI effects",
   "views": [
    {
-    "label": "Chord",
-    "src": "chord-0.webp"
+    "label": "Init",
+    "src": "chord-0.avif"
+   },
+   {
+    "label": "Diminished 7",
+    "src": "chord-1.avif"
+   },
+   {
+    "label": "Strummed Guitar",
+    "src": "chord-2.avif"
    }
   ]
  },
@@ -768,8 +816,16 @@
   "category": "MIDI effects",
   "views": [
    {
-    "label": "Scale",
-    "src": "scale-0.webp"
+    "label": "Init",
+    "src": "scale-0.avif"
+   },
+   {
+    "label": "B Locrian",
+    "src": "scale-1.avif"
+   },
+   {
+    "label": "C Diminished",
+    "src": "scale-2.avif"
    }
   ]
  },
@@ -778,8 +834,16 @@
   "category": "MIDI effects",
   "views": [
    {
-    "label": "Length",
-    "src": "length-0.webp"
+    "label": "Init",
+    "src": "length-0.avif"
+   },
+   {
+    "label": "Fixed 250ms",
+    "src": "length-1.avif"
+   },
+   {
+    "label": "Dynamic Length",
+    "src": "length-2.avif"
    }
   ]
  },
@@ -788,8 +852,16 @@
   "category": "MIDI effects",
   "views": [
    {
-    "label": "Velocity",
-    "src": "velocity-0.webp"
+    "label": "Init",
+    "src": "velocity-0.avif"
+   },
+   {
+    "label": "Hard Hitter",
+    "src": "velocity-1.avif"
+   },
+   {
+    "label": "Mid Band",
+    "src": "velocity-2.avif"
    }
   ]
  },
@@ -798,8 +870,16 @@
   "category": "MIDI effects",
   "views": [
    {
-    "label": "Random",
-    "src": "random-0.webp"
+    "label": "Init",
+    "src": "random-0.avif"
+   },
+   {
+    "label": "Pitch Roulette",
+    "src": "random-1.avif"
+   },
+   {
+    "label": "Octave Scatter",
+    "src": "random-2.avif"
    }
   ]
  }
