@@ -29,7 +29,7 @@ async function contributors() {
       for (const c of list) {
         const user = c.type === "User";
         const name = user ? c.login : c.name;
-        if (!name || /\[bot\]$/.test(name) || (!user && c.type !== "Anonymous")) continue;
+        if (!name || name.endsWith("[bot]") || (!user && c.type !== "Anonymous")) continue;
         const key = user ? c.login : `anon:${name}`;
         const prev = byKey.get(key);
         if (prev) prev.contributions += c.contributions;
