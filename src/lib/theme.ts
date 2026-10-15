@@ -1,4 +1,4 @@
-import { createContext, useCallback, useContext, useEffect, useState } from "react";
+import { createContext, useCallback, useContext, useEffect, useRef, useState } from "react";
 
 export type Theme = "dark" | "light";
 const KEY = "nota-site-theme";
@@ -16,14 +16,17 @@ const system = (): Theme => (query().matches ? "light" : "dark");
 /** The site theme: the visitor's pick if they made one, otherwise the system's. */
 export function useTheme() {
   const [theme, setTheme] = useState<Theme>(() => saved() ?? system());
+  // Also kept in memory, so a pick sticks for this visit even where storage is blocked.
+  const picked = useRef(saved() !== null);
   useEffect(() => { document.documentElement.setAttribute("data-theme", theme); }, [theme]);
   useEffect(() => {
     const mq = query();
-    const follow = () => { if (!saved()) setTheme(system()); };
+    const follow = () => { if (!picked.current) setTheme(system()); };
     mq.addEventListener("change", follow);
     return () => mq.removeEventListener("change", follow);
   }, []);
   const choose = (t: Theme) => {
+    picked.current = true;
     setTheme(t);
     try { localStorage.setItem(KEY, t); } catch { /* storage blocked */ }
   };
