@@ -20,7 +20,7 @@ npm run build    # type-check and build to dist/
 - `public/devices/` + `src/features/devices/devices.json` — device gallery images: every tab of each device mockup in `nota-design`, shot at 2x (Monolith and Strata have no mockup, so they are cards captured from the app)
 - `public/hero/devices-panel.webp` — the Devices panel (Volt + Flanger) captured from the real app at 2x
 - `src/lib/release.ts` — fetches the latest GitHub release and picks the download for the visitor's OS; falls back to the releases page offline
-- `src/styles.css` — Ember Graphite (dark) / Ember Paper (light) tokens and hover states
+- `src/styles.css` — Studio Dark / Studio Light tokens (from the app's `Theme/Themes/studio-*.json`) and hover states; the app mocks use Studio Dark values
 
 ## Deploy
 

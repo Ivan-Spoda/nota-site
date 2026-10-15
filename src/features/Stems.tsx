@@ -17,25 +17,25 @@ function stemAmps() {
 }
 const STEMS = stemAmps();
 const mixD = wpath(STEMS.mix, 600, 60);
-const stems = ([["Drums", "#58B368", STEMS.drums], ["Bass", "#C2554A", STEMS.bass], ["Vocals", "#9AA64A", STEMS.vox], ["Other", "#5AA0B8", STEMS.other]] as const)
+const stems = ([["Drums", "#7FB87A", STEMS.drums], ["Bass", "#D77A8F", STEMS.bass], ["Vocals", "#B3B45E", STEMS.vox], ["Other", "#6A9FD8", STEMS.other]] as const)
   .map(([name, color, a]) => ({ name, color, tint: color + "12", d: wpath([...a], 600, 60) }));
 
 export function Stems() {
   return (
     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(min(100%,400px),1fr))', gap: '48px', alignItems: 'center' }}>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '460px' }}>
-        <div style={{ fontFamily: "'Geist Mono',monospace", fontSize: '11px', letterSpacing: '.14em', color: 'var(--ink4)' }}>SEPARATE STEMS</div>
+        <div style={{ fontSize: '11px', fontWeight: '500', color: 'var(--ink4)' }}>Separate stems</div>
         <h3 style={{ margin: '0', fontSize: '32px', fontWeight: '600', letterSpacing: '-.02em', lineHeight: '1.1' }}>Any song, split into four tracks.</h3>
         <p style={{ margin: '0', fontSize: '16px', lineHeight: '1.65', color: 'var(--ink3)', textWrap: 'pretty' }}>Right-click an audio clip and choose Separate Stems. Drums, Bass, Vocals and Other land on four tracks, lined up with the original. It runs on Meta's Demucs model on your computer: a three-minute song takes under a minute, and no audio leaves your machine.</p>
       </div>
-      <div style={{ background: 'var(--surface)', border: '1px solid var(--line)', borderRadius: '10px', padding: '14px', display: 'flex', flexDirection: 'column', gap: '8px', boxSizing: 'border-box', minWidth: '0' }}>
+      <div style={{ background: 'var(--surface)', border: '1px solid var(--line)', borderRadius: '3px', padding: '14px', display: 'flex', flexDirection: 'column', gap: '8px', boxSizing: 'border-box', minWidth: '0' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '0 4px 4px' }}>
           <span style={{ fontSize: '12px', fontWeight: '600', color: 'var(--ink)' }}>loop.wav</span>
           <span style={{ fontFamily: "'Geist Mono',monospace", fontSize: '10px', color: 'var(--ink4)' }}>3:12 · 44.1 kHz</span>
           <span style={{ flex: '1' }} />
-          <span style={{ fontFamily: "'Geist Mono',monospace", fontSize: '10px', color: 'var(--brassInk)' }}>Separated · 41 s</span>
+          <span style={{ fontFamily: "'Geist Mono',monospace", fontSize: '10px', color: 'var(--accentInk)' }}>Separated · 41 s</span>
         </div>
-        <div style={{ height: '62px', display: 'flex', borderRadius: '5px', overflow: 'hidden', background: 'var(--well)', border: '1px solid var(--hair)' }}>
+        <div style={{ height: '62px', display: 'flex', borderRadius: '3px', overflow: 'hidden', background: 'var(--well)', border: '1px solid var(--hair)' }}>
           <div style={{ width: '84px', flex: 'none', display: 'flex', alignItems: 'center', padding: '0 10px', borderRight: '1px solid var(--hair)', fontSize: '11px', fontWeight: '600', color: 'var(--ink2)' }}>Original</div>
           <svg viewBox={'0 0 600 60'} preserveAspectRatio={'none'} style={{ flex: '1', minWidth: '0', height: '100%', display: 'block' }}>
             <path d={mixD} stroke="var(--ink4)" strokeWidth="1.6" fill="none" />
@@ -43,7 +43,7 @@ export function Stems() {
         </div>
         {stems.map((s, sI) => (
           <Fragment key={sI}>
-            <div style={{ height: '46px', display: 'flex', borderRadius: '5px', overflow: 'hidden', background: 'var(--well)', border: '1px solid var(--hair)' }}>
+            <div style={{ height: '46px', display: 'flex', borderRadius: '3px', overflow: 'hidden', background: 'var(--well)', border: '1px solid var(--hair)' }}>
               <div style={{ width: '84px', flex: 'none', display: 'flex', alignItems: 'center', gap: '7px', padding: '0 10px', borderRight: '1px solid var(--hair)', position: 'relative' }}>
                 <div style={{ position: 'absolute', left: '0', top: '0', bottom: '0', width: '3px', background: s.color }} />
                 <span style={{ fontSize: '11px', fontWeight: '600', color: 'var(--ink2)' }}>{s.name}</span>

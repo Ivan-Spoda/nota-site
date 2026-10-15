@@ -63,7 +63,7 @@ const ICONS = {
   "Appearance": "M12 4 A8 8 0 1 0 12 20 Z M12 4 A8 8 0 0 1 12 20",
   "Shortcuts": "M3 7 H21 V17 H3 Z M7 11 H7.01 M11 11 H11.01 M15 11 H15.01 M8 14 H16",
 };
-const sw = (on) => ({ track: on ? "#D8A03D" : "#2C2923", knob: on ? "#171613" : "#6E6A5E", knobX: on ? "14px" : "2px" });
+const sw = (on) => ({ track: on ? "#FF9F1C" : "#141517", knob: on ? "#17181A" : "#92969D", knobX: on ? "14px" : "2px" });
 
 class SettingsWindowImpl extends ReactComponent<any, any> {
   [k: string]: any;
@@ -74,7 +74,7 @@ class SettingsWindowImpl extends ReactComponent<any, any> {
     midi: { ump: true }, pad: true,
     folders: [HOME + "/Library/Application Support/Nota/plugins/VST3"], selFolder: 0, scan: "idle",
     filter: "All", q: "", installed: { chow: true }, busy: {}, refreshing: false,
-    theme: "Ember Graphite", mcp: true, port: "3900", copied: false,
+    theme: "Studio Dark", mcp: true, port: "3900", copied: false,
     lib: { samples: null, projects: null }, sq: "",
   };
   componentWillUnmount() { clearInterval(this.cpuT); }
@@ -99,10 +99,10 @@ class SettingsWindowImpl extends ReactComponent<any, any> {
       const on = n.t === s.tab;
       const badge = n.t === "Downloads" ? String(PLUGINS.filter((p) => !s.installed[p.id]).length) : "";
       return {
-        isGroup: false, isItem: true, label: n.t, badge, icon: ICONS[n.t], iconInk: on ? "#D8A03D" : "#6E6A5E",
-        bg: on && accent === "Tinted" ? "#241F17" : "transparent",
-        edge: on ? "#D8A03D" : "transparent",
-        ink: on ? (accent === "Tinted" ? "#E9BE6A" : "#E9E4D8") : "#A39D8F",
+        isGroup: false, isItem: true, label: n.t, badge, icon: ICONS[n.t], iconInk: on ? "#FF9F1C" : "#92969D",
+        bg: on && accent === "Tinted" ? "#393C41" : "transparent",
+        edge: on ? "#FF9F1C" : "transparent",
+        ink: on ? (accent === "Tinted" ? "#FFB547" : "#E8E9EB") : "#C0C4C9",
         weight: on ? 600 : 400,
         onClick: () => this.setState({ tab: n.t, open: null }),
       };
@@ -113,10 +113,10 @@ class SettingsWindowImpl extends ReactComponent<any, any> {
       const open = s.open === k;
       return {
         label: d.label, width: d.width, value: s.sel[k], open,
-        border: open ? "#D8A03D" : "#2C2923",
+        border: open ? "#FF9F1C" : "#141517",
         onToggle: () => this.setState({ open: open ? null : k }),
         items: d.options.map((o) => ({
-          label: o, check: o === s.sel[k] ? "✓" : "", ink: o === s.sel[k] ? "#E9E4D8" : "#A39D8F",
+          label: o, check: o === s.sel[k] ? "✓" : "", ink: o === s.sel[k] ? "#E8E9EB" : "#C0C4C9",
           onClick: () => this.setState({ sel: { ...s.sel, [k]: o }, open: null }),
         })),
       };
@@ -129,7 +129,7 @@ class SettingsWindowImpl extends ReactComponent<any, any> {
     const midiRows = [{ id: "ump", name: "UMP Network Network MIDI 2.0 Session 1", kind: "MIDI 2.0" }].map((m, i) => {
       const on = !!s.midi[m.id];
       const t = sw(on);
-      return { ...m, rule: i ? "#221F1A" : "transparent", dot: on ? "#D8A03D" : "#3A362E", ink: on ? "#E9E4D8" : "#6E6A5E",
+      return { ...m, rule: i ? "#45484E" : "transparent", dot: on ? "#FF9F1C" : "#45484E", ink: on ? "#E8E9EB" : "#92969D",
         track: t.track, knob: t.knob, knobX: t.knobX,
         onClick: () => this.setState({ midi: { ...s.midi, [m.id]: !on } }) };
     });
@@ -137,11 +137,11 @@ class SettingsWindowImpl extends ReactComponent<any, any> {
     const padMap = [
       ["Face buttons", "C4  D4  E4  F4"], ["Shoulder buttons", "G4  A4  B4  C5"],
       ["D-pad up / down", "Octave −1 / +1"], ["D-pad left / right", "Velocity − / +"],
-    ].map(([input, action], i) => ({ input, action, rule: i ? "#221F1A" : "transparent" }));
+    ].map(([input, action], i) => ({ input, action, rule: i ? "#45484E" : "transparent" }));
 
     const folderRows = s.folders.map((p, i) => ({
       path: p, tag: i === 0 ? "default" : "",
-      bg: i === s.selFolder ? "#241F17" : "transparent", ink: i === s.selFolder ? "#E9E4D8" : "#A39D8F",
+      bg: i === s.selFolder ? "#393C41" : "transparent", ink: i === s.selFolder ? "#E8E9EB" : "#C0C4C9",
       onClick: () => this.setState({ selFolder: i }),
     }));
     const canRemove = s.selFolder > 0;
@@ -154,8 +154,8 @@ class SettingsWindowImpl extends ReactComponent<any, any> {
     };
     const filters = Object.keys(counts).map((f) => {
       const on = f === s.filter;
-      return { label: f, count: counts[f], bg: on ? "#D8A03D" : "transparent", ink: on ? "#171613" : "#A39D8F",
-        countInk: on ? "#5E4A22" : "#55514A", weight: on ? 600 : 500, onClick: () => this.setState({ filter: f }) };
+      return { label: f, count: counts[f], bg: on ? "#FF9F1C" : "transparent", ink: on ? "#17181A" : "#C0C4C9",
+        countInk: on ? "#BF7D22" : "#82868C", weight: on ? 600 : 500, onClick: () => this.setState({ filter: f }) };
     });
     const q = s.q.trim().toLowerCase();
     const list = PLUGINS.filter((p) =>
@@ -164,9 +164,9 @@ class SettingsWindowImpl extends ReactComponent<any, any> {
     const plugins = list.map((p, i) => {
       const inst = !!s.installed[p.id], busy = !!s.busy[p.id];
       return {
-        ...p, note: p.note || "", sizeLabel: inst ? "" : p.size, rule: i ? "#221F1A" : "transparent",
+        ...p, note: p.note || "", sizeLabel: inst ? "" : p.size, rule: i ? "#45484E" : "transparent",
         isInstalled: inst, canInstall: !inst,
-        btnLabel: busy ? "Installing…" : "Install", btnBg: busy ? "#100F0D" : "#1F1D19", btnInk: busy ? "#8D8779" : "#E9E4D8",
+        btnLabel: busy ? "Installing…" : "Install", btnBg: busy ? "#17181A" : "#34363B", btnInk: busy ? "#A4A9B0" : "#E8E9EB",
         onInstall: () => {
           if (busy) return;
           this.setState({ busy: { ...this.state.busy, [p.id]: true } });
@@ -181,20 +181,20 @@ class SettingsWindowImpl extends ReactComponent<any, any> {
       { k: "projects", label: "Projects", def: HOME + "/Documents/Nota Projects", alt: HOME + "/Music/Projects" },
     ].map((l, i) => ({
       label: l.label, path: s.lib[l.k] || l.def, tag: s.lib[l.k] ? "custom" : "default",
-      rule: i ? "#221F1A" : "transparent",
+      rule: i ? "#45484E" : "transparent",
       onClick: () => this.setState({ lib: { ...s.lib, [l.k]: s.lib[l.k] ? null : l.alt } }),
     }));
 
-    const themes = [["Ember Graphite", "#171613", "#3A362E"], ["Ember Paper", "#EFEAE0", "#EFEAE0"], ["System", "linear-gradient(135deg,#EFEAE0 50%,#171613 50%)", "#3A362E"]].map(([t, sv, sb]) => {
+    const themes = [["Studio Dark", "#1E1F22", "#45484E"], ["Studio Light", "#C9CBCF", "#C9CBCF"], ["Ember Graphite", "#0B0A09", "#45484E"], ["Ember Paper", "#DCD6C5", "#DCD6C5"]].map(([t, sv, sb]) => {
       const on = t === s.theme;
-      return { label: t, swatch: sv, swatchBorder: on ? "#171613" : sb, bg: on ? "#D8A03D" : "transparent", ink: on ? "#171613" : "#A39D8F",
+      return { label: t, swatch: sv, swatchBorder: on ? "#17181A" : sb, bg: on ? "#FF9F1C" : "transparent", ink: on ? "#17181A" : "#C0C4C9",
         weight: on ? 600 : 500, onClick: () => this.setState({ theme: t }) };
     });
 
     const sq = s.sq.trim().toLowerCase();
     const shortcutGroups = SHORTCUTS.map((g) => {
       const rows = g.rows.filter(([k, d]) => !sq || (d + " " + k.join(" ")).toLowerCase().includes(sq))
-        .map(([k, d], i) => ({ keys: k.map((label) => ({ label })), desc: d, rule: i ? "#221F1A" : "transparent" }));
+        .map(([k, d], i) => ({ keys: k.map((label) => ({ label })), desc: d, rule: i ? "#45484E" : "transparent" }));
       return { title: g.title, count: rows.length, rows };
     }).filter((g) => g.rows.length);
 
@@ -207,13 +207,13 @@ class SettingsWindowImpl extends ReactComponent<any, any> {
       isAudio: s.tab === "Audio", isMidi: s.tab === "MIDI", isPads: s.tab === "Gamepads", isPlugins: s.tab === "Plug-ins",
       isGet: s.tab === "Downloads", isLibrary: s.tab === "Library", isAppearance: s.tab === "Appearance", isShortcuts: s.tab === "Shortcuts",
       selects, latencyMs, latencyDetail, anyOpen: !!s.open, closeAll: () => this.setState({ open: null }),
-      toneLabel: s.tone ? "■  Stop tone" : "Play test tone", toneBg: s.tone ? "#D8A03D" : "#1F1D19",
-      toneInk: s.tone ? "#171613" : "#E9E4D8", toneBorder: s.tone ? "#D8A03D" : "#2C2923",
+      toneLabel: s.tone ? "■  Stop tone" : "Play test tone", toneBg: s.tone ? "#FF9F1C" : "#34363B",
+      toneInk: s.tone ? "#17181A" : "#E8E9EB", toneBorder: s.tone ? "#FF9F1C" : "#141517",
       toggleTone: () => this.setState({ tone: !s.tone }),
       runCpu: () => this.runCpu(), cpuLabel: s.cpu === "running" ? "Measuring…" : "CPU check", cpuNote,
-      cpuInk: s.cpu === "done" ? "#A39D8F" : "#6E6A5E",
+      cpuInk: s.cpu === "done" ? "#C0C4C9" : "#92969D",
       midiRows, pad: sw(s.pad), togglePad: () => this.setState({ pad: !s.pad }), padMap,
-      folderRows, removeInk: canRemove ? "#E9E4D8" : "#55514A",
+      folderRows, removeInk: canRemove ? "#E8E9EB" : "#82868C",
       addFolder: () => this.setState({ folders: [...s.folders, HOME + "/Music/VST3 Extra" + (s.folders.length > 1 ? " " + s.folders.length : "")], selFolder: s.folders.length }),
       removeFolder: () => { if (canRemove) this.setState({ folders: s.folders.filter((_, i) => i !== s.selFolder), selFolder: 0 }); },
       rescan: () => { if (s.scan === "busy") return; this.setState({ scan: "busy" }); this.later(() => this.setState({ scan: "done" }), 1600); },
@@ -225,7 +225,7 @@ class SettingsWindowImpl extends ReactComponent<any, any> {
       libRows, themes,
       mcpSw: sw(s.mcp), toggleMcp: () => this.setState({ mcp: !s.mcp }), mcpOpacity: s.mcp ? 1 : 0.4,
       port: s.port, onPort: (e) => this.setState({ port: e.target.value.replace(/\D/g, "").slice(0, 5) }),
-      mcpDot: s.mcp ? "#7FB069" : "#3A362E",
+      mcpDot: s.mcp ? "#3F8A45" : "#45484E",
       mcpStatus: s.mcp ? "Listening on http://127.0.0.1:" + (s.port || "—") + "/ (loopback)" : "Off",
       copyLabel: s.copied ? "Copied ✓" : "Copy config",
       copyConfig: () => { if (!s.mcp) return; this.setState({ copied: true }); this.later(() => this.setState({ copied: false }), 1500); },
@@ -236,20 +236,20 @@ class SettingsWindowImpl extends ReactComponent<any, any> {
   render() {
     const { addFolder, anyOpen, closeAll, copyConfig, copyLabel, cpuInk, cpuLabel, cpuNote, filters, folderRows, isAppearance, isAudio, isGet, isLibrary, isMidi, isPads, isPlugins, isShortcuts, latencyDetail, latencyMs, libRows, mcpDot, mcpOpacity, mcpStatus, mcpSw, midiRows, nav, noPlugins, onPort, onQ, onSq, pad, padMap, plugins, port, q, refresh, refreshLabel, removeFolder, removeInk, rescan, runCpu, scanLabel, scanNote, selects, shortcutGroups, sq, subtitle, tab, themes, toggleMcp, togglePad, toggleTone, toneBg, toneBorder, toneInk, toneLabel } = this.renderVals();
     return (
-      <div ref={(el) => { this._root = el; }} data-screen-label="Settings" style={{ width: '880px', height: '640px', display: 'flex', flexDirection: 'column', background: '#171613', border: '1px solid #2C2923', borderRadius: '10px', overflow: 'hidden', boxShadow: '0 30px 80px rgba(0,0,0,.55)', position: 'relative' }}>
-        <div style={{ height: '38px', flex: 'none', display: 'flex', alignItems: 'center', gap: '8px', padding: '0 14px', background: '#141310', borderBottom: '1px solid #2C2923', position: 'relative' }}>
+      <div ref={(el) => { this._root = el; }} data-screen-label="Settings" style={{ width: '880px', height: '640px', display: 'flex', flexDirection: 'column', background: '#2B2D31', border: '1px solid #141517', borderRadius: '10px', overflow: 'hidden', boxShadow: '0 30px 80px rgba(0,0,0,.55)', position: 'relative' }}>
+        <div style={{ height: '38px', flex: 'none', display: 'flex', alignItems: 'center', gap: '8px', padding: '0 14px', background: '#2B2D31', borderBottom: '1px solid #141517', position: 'relative' }}>
           <span style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#FF5F57' }} />
-          <span style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#3A362E' }} />
+          <span style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#45484E' }} />
           <span style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#28C840' }} />
-          <div style={{ position: 'absolute', left: '0', right: '0', textAlign: 'center', fontSize: '12px', fontWeight: '600', color: '#A39D8F', pointerEvents: 'none' }}>Settings</div>
+          <div style={{ position: 'absolute', left: '0', right: '0', textAlign: 'center', fontSize: '12px', fontWeight: '600', color: '#C0C4C9', pointerEvents: 'none' }}>Settings</div>
         </div>
         <div style={{ flex: '1', minHeight: '0', display: 'flex' }}>
-          <div style={{ width: '188px', flex: 'none', display: 'flex', flexDirection: 'column', gap: '2px', padding: '12px 10px', background: '#141310', borderRight: '1px solid #2C2923', boxSizing: 'border-box' }}>
+          <div style={{ width: '188px', flex: 'none', display: 'flex', flexDirection: 'column', gap: '2px', padding: '12px 10px', background: '#2B2D31', borderRight: '1px solid #141517', boxSizing: 'border-box' }}>
             {nav.map((t, tI) => (
               <Fragment key={tI}>
                 {t.isGroup ? (
                   <>
-                    <div style={{ padding: '12px 10px 5px', fontSize: '9px', fontWeight: '700', letterSpacing: '.12em', color: '#55514A' }}>{t.label}</div>
+                    <div style={{ padding: '12px 10px 5px', fontSize: '9px', fontWeight: '700', letterSpacing: '.12em', color: '#82868C' }}>{t.label}</div>
                   </>
                 ) : null}
                 {t.isItem ? (
@@ -262,7 +262,7 @@ class SettingsWindowImpl extends ReactComponent<any, any> {
                       <span style={{ flex: '1', fontSize: '12px', fontWeight: t.weight, color: t.ink }}>{t.label}</span>
                       {t.badge ? (
                         <>
-                          <span style={{ fontFamily: "'Geist Mono',monospace", fontSize: '9px', color: '#6E6A5E' }}>{t.badge}</span>
+                          <span style={{ fontFamily: "'Geist Mono',monospace", fontSize: '9px', color: '#92969D' }}>{t.badge}</span>
                         </>
                       ) : null}
                     </div>
@@ -273,32 +273,32 @@ class SettingsWindowImpl extends ReactComponent<any, any> {
           </div>
           <div className="scr" style={{ flex: '1', minWidth: '0', overflowY: 'auto', padding: '26px 32px 40px', boxSizing: 'border-box' }}>
             <div style={{ display: 'flex', alignItems: 'baseline', gap: '10px', marginBottom: '20px' }}>
-              <div style={{ fontSize: '17px', fontWeight: '600', color: '#E9E4D8' }}>{tab}</div>
-              <div style={{ fontSize: '11px', color: '#6E6A5E' }}>{subtitle}</div>
+              <div style={{ fontSize: '17px', fontWeight: '600', color: '#E8E9EB' }}>{tab}</div>
+              <div style={{ fontSize: '11px', color: '#92969D' }}>{subtitle}</div>
             </div>
             {isAudio ? (
               <>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '22px' }}>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                    <div style={{ fontSize: '10px', fontWeight: '700', letterSpacing: '.12em', color: '#6E6A5E', paddingBottom: '4px' }}>AUDIO DEVICE</div>
+                    <div style={{ fontSize: '10px', fontWeight: '700', letterSpacing: '.12em', color: '#92969D', paddingBottom: '4px' }}>AUDIO DEVICE</div>
                     {selects.map((f, fI) => (
                       <Fragment key={fI}>
                         <div style={{ display: 'grid', gridTemplateColumns: '150px minmax(0,1fr)', alignItems: 'center', minHeight: '34px' }}>
-                          <span style={{ fontSize: '12px', color: '#A39D8F' }}>{f.label}</span>
+                          <span style={{ fontSize: '12px', color: '#C0C4C9' }}>{f.label}</span>
                           <div style={{ position: 'relative', width: f.width, maxWidth: '100%' }}>
-                            <div className="st2" onClick={f.onToggle} style={{ height: '28px', display: 'flex', alignItems: 'center', gap: '8px', padding: '0 8px 0 10px', background: '#100F0D', border: `1px solid ${f.border}`, borderRadius: '5px', cursor: 'pointer', boxSizing: 'border-box' }}>
-                              <span style={{ flex: '1', minWidth: '0', fontSize: '12px', color: '#E9E4D8', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{f.value}</span>
-                              <svg width="10" height="10" viewBox={'0 0 10 10'} fill="none" stroke="#8D8779" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+                            <div className="st2" onClick={f.onToggle} style={{ height: '28px', display: 'flex', alignItems: 'center', gap: '8px', padding: '0 8px 0 10px', background: '#17181A', border: `1px solid ${f.border}`, borderRadius: '5px', cursor: 'pointer', boxSizing: 'border-box' }}>
+                              <span style={{ flex: '1', minWidth: '0', fontSize: '12px', color: '#E8E9EB', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{f.value}</span>
+                              <svg width="10" height="10" viewBox={'0 0 10 10'} fill="none" stroke="#A4A9B0" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
                                 <path d="M2 3.5 L5 6.5 L8 3.5" />
                               </svg>
                             </div>
                             {f.open ? (
                               <>
-                                <div style={{ position: 'absolute', left: '0', right: '0', top: '32px', zIndex: '20', display: 'flex', flexDirection: 'column', padding: '4px', background: '#1F1D19', border: '1px solid #3A362E', borderRadius: '6px', boxShadow: '0 12px 30px rgba(0,0,0,.5)' }}>
+                                <div style={{ position: 'absolute', left: '0', right: '0', top: '32px', zIndex: '20', display: 'flex', flexDirection: 'column', padding: '4px', background: '#34363B', border: '1px solid #45484E', borderRadius: '6px', boxShadow: '0 12px 30px rgba(0,0,0,.5)' }}>
                                   {f.items.map((o, oI) => (
                                     <Fragment key={oI}>
                                       <div className="st3" onClick={o.onClick} style={{ height: '26px', display: 'flex', alignItems: 'center', gap: '8px', padding: '0 8px', borderRadius: '4px', cursor: 'pointer' }}>
-                                        <span style={{ width: '10px', fontSize: '11px', color: '#D8A03D' }}>{o.check}</span>
+                                        <span style={{ width: '10px', fontSize: '11px', color: '#FF9F1C' }}>{o.check}</span>
                                         <span style={{ fontSize: '12px', color: o.ink, whiteSpace: 'nowrap' }}>{o.label}</span>
                                       </div>
                                     </Fragment>
@@ -311,23 +311,23 @@ class SettingsWindowImpl extends ReactComponent<any, any> {
                       </Fragment>
                     ))}
                     <div style={{ display: 'grid', gridTemplateColumns: '150px minmax(0,1fr)', alignItems: 'center', minHeight: '34px' }}>
-                      <span style={{ fontSize: '12px', color: '#A39D8F' }}>Latency</span>
+                      <span style={{ fontSize: '12px', color: '#C0C4C9' }}>Latency</span>
                       <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px', fontFamily: "'Geist Mono',monospace", fontSize: '12px' }}>
-                        <span style={{ color: '#E9E4D8' }}>{latencyMs}</span>
-                        <span style={{ color: '#6E6A5E' }}>{latencyDetail}</span>
+                        <span style={{ color: '#E8E9EB' }}>{latencyMs}</span>
+                        <span style={{ color: '#92969D' }}>{latencyDetail}</span>
                       </div>
                     </div>
                   </div>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', borderTop: '1px solid #221F1A', paddingTop: '20px' }}>
-                    <div style={{ fontSize: '10px', fontWeight: '700', letterSpacing: '.12em', color: '#6E6A5E', paddingBottom: '4px' }}>TEST</div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', borderTop: '1px solid #45484E', paddingTop: '20px' }}>
+                    <div style={{ fontSize: '10px', fontWeight: '700', letterSpacing: '.12em', color: '#92969D', paddingBottom: '4px' }}>TEST</div>
                     <div style={{ display: 'grid', gridTemplateColumns: '150px 132px minmax(0,1fr)', alignItems: 'center', gap: '0 14px', minHeight: '34px' }}>
-                      <span style={{ fontSize: '12px', color: '#A39D8F' }}>Output check</span>
+                      <span style={{ fontSize: '12px', color: '#C0C4C9' }}>Output check</span>
                       <div onClick={toggleTone} style={{ height: '28px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '7px', borderRadius: '5px', cursor: 'pointer', fontSize: '12px', fontWeight: '500', background: toneBg, color: toneInk, border: `1px solid ${toneBorder}`, boxSizing: 'border-box' }}>{toneLabel}</div>
-                      <span style={{ fontSize: '11px', lineHeight: '1.5', color: '#6E6A5E', textWrap: 'pretty' }}>440 Hz sine at −14 dBFS, through the master.</span>
+                      <span style={{ fontSize: '11px', lineHeight: '1.5', color: '#92969D', textWrap: 'pretty' }}>440 Hz sine at −14 dBFS, through the master.</span>
                     </div>
                     <div style={{ display: 'grid', gridTemplateColumns: '150px 132px minmax(0,1fr)', alignItems: 'center', gap: '0 14px', minHeight: '34px' }}>
-                      <span style={{ fontSize: '12px', color: '#A39D8F' }}>Performance</span>
-                      <div className="st4" onClick={runCpu} style={{ height: '28px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '5px', cursor: 'pointer', fontSize: '12px', fontWeight: '500', background: '#1F1D19', color: '#E9E4D8', border: '1px solid #2C2923', boxSizing: 'border-box' }}>{cpuLabel}</div>
+                      <span style={{ fontSize: '12px', color: '#C0C4C9' }}>Performance</span>
+                      <div className="st4" onClick={runCpu} style={{ height: '28px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '5px', cursor: 'pointer', fontSize: '12px', fontWeight: '500', background: '#34363B', color: '#E8E9EB', border: '1px solid #141517', boxSizing: 'border-box' }}>{cpuLabel}</div>
                       <span style={{ fontSize: '11px', lineHeight: '1.5', color: cpuInk, textWrap: 'pretty' }}>{cpuNote}</span>
                     </div>
                   </div>
@@ -337,14 +337,14 @@ class SettingsWindowImpl extends ReactComponent<any, any> {
             {isMidi ? (
               <>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                  <div style={{ fontSize: '10px', fontWeight: '700', letterSpacing: '.12em', color: '#6E6A5E', paddingBottom: '4px' }}>MIDI INPUTS</div>
-                  <div style={{ display: 'flex', flexDirection: 'column', border: '1px solid #2C2923', borderRadius: '6px', overflow: 'hidden' }}>
+                  <div style={{ fontSize: '10px', fontWeight: '700', letterSpacing: '.12em', color: '#92969D', paddingBottom: '4px' }}>MIDI INPUTS</div>
+                  <div style={{ display: 'flex', flexDirection: 'column', border: '1px solid #141517', borderRadius: '6px', overflow: 'hidden' }}>
                     {midiRows.map((m, mI) => (
                       <Fragment key={mI}>
-                        <div onClick={m.onClick} style={{ height: '40px', display: 'flex', alignItems: 'center', gap: '12px', padding: '0 12px', background: '#141310', cursor: 'pointer', borderTop: `1px solid ${m.rule}` }}>
+                        <div onClick={m.onClick} style={{ height: '40px', display: 'flex', alignItems: 'center', gap: '12px', padding: '0 12px', background: '#2B2D31', cursor: 'pointer', borderTop: `1px solid ${m.rule}` }}>
                           <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: m.dot }} />
                           <span style={{ flex: '1', minWidth: '0', fontSize: '12px', color: m.ink, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{m.name}</span>
-                          <span style={{ fontFamily: "'Geist Mono',monospace", fontSize: '10px', color: '#6E6A5E' }}>{m.kind}</span>
+                          <span style={{ fontFamily: "'Geist Mono',monospace", fontSize: '10px', color: '#92969D' }}>{m.kind}</span>
                           <div style={{ width: '28px', height: '16px', flex: 'none', borderRadius: '8px', position: 'relative', background: m.track }}>
                             <div style={{ position: 'absolute', top: '2px', left: m.knobX, width: '12px', height: '12px', borderRadius: '50%', background: m.knob }} />
                           </div>
@@ -352,7 +352,7 @@ class SettingsWindowImpl extends ReactComponent<any, any> {
                       </Fragment>
                     ))}
                   </div>
-                  <div style={{ fontSize: '11px', lineHeight: '1.55', color: '#6E6A5E' }}>Uncheck a controller to stop Nota listening to it. New devices are on by default.</div>
+                  <div style={{ fontSize: '11px', lineHeight: '1.55', color: '#92969D' }}>Uncheck a controller to stop Nota listening to it. New devices are on by default.</div>
                 </div>
               </>
             ) : null}
@@ -360,30 +360,30 @@ class SettingsWindowImpl extends ReactComponent<any, any> {
               <>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '22px' }}>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                    <div style={{ fontSize: '10px', fontWeight: '700', letterSpacing: '.12em', color: '#6E6A5E', paddingBottom: '2px' }}>GAMEPAD INPUT</div>
+                    <div style={{ fontSize: '10px', fontWeight: '700', letterSpacing: '.12em', color: '#92969D', paddingBottom: '2px' }}>GAMEPAD INPUT</div>
                     <div onClick={togglePad} style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer' }}>
                       <div style={{ width: '28px', height: '16px', flex: 'none', borderRadius: '8px', position: 'relative', background: pad.track }}>
                         <div style={{ position: 'absolute', top: '2px', left: pad.knobX, width: '12px', height: '12px', borderRadius: '50%', background: pad.knob }} />
                       </div>
-                      <span style={{ fontSize: '12px', color: '#E9E4D8' }}>Use a connected gamepad for notes and mapped controls</span>
+                      <span style={{ fontSize: '12px', color: '#E8E9EB' }}>Use a connected gamepad for notes and mapped controls</span>
                     </div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px', height: '44px', padding: '0 14px', border: '1px dashed #2C2923', borderRadius: '6px' }}>
-                      <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#3A362E' }} />
-                      <span style={{ fontSize: '11px', color: '#8D8779' }}>No gamepad detected. Connect one and it appears here.</span>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px', height: '44px', padding: '0 14px', border: '1px dashed #141517', borderRadius: '6px' }}>
+                      <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#45484E' }} />
+                      <span style={{ fontSize: '11px', color: '#A4A9B0' }}>No gamepad detected. Connect one and it appears here.</span>
                     </div>
                   </div>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', borderTop: '1px solid #221F1A', paddingTop: '20px' }}>
-                    <div style={{ fontSize: '10px', fontWeight: '700', letterSpacing: '.12em', color: '#6E6A5E', paddingBottom: '2px' }}>LAYOUT</div>
-                    <div style={{ display: 'grid', gridTemplateColumns: '150px minmax(0,1fr)', border: '1px solid #2C2923', borderRadius: '6px', overflow: 'hidden' }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', borderTop: '1px solid #45484E', paddingTop: '20px' }}>
+                    <div style={{ fontSize: '10px', fontWeight: '700', letterSpacing: '.12em', color: '#92969D', paddingBottom: '2px' }}>LAYOUT</div>
+                    <div style={{ display: 'grid', gridTemplateColumns: '150px minmax(0,1fr)', border: '1px solid #141517', borderRadius: '6px', overflow: 'hidden' }}>
                       {padMap.map((p, pI) => (
                         <Fragment key={pI}>
-                          <div style={{ padding: '9px 12px', fontSize: '12px', color: '#A39D8F', background: '#141310', borderTop: `1px solid ${p.rule}` }}>{p.input}</div>
-                          <div style={{ padding: '9px 12px', fontFamily: "'Geist Mono',monospace", fontSize: '11px', color: '#E9E4D8', background: '#141310', borderTop: `1px solid ${p.rule}` }}>{p.action}</div>
+                          <div style={{ padding: '9px 12px', fontSize: '12px', color: '#C0C4C9', background: '#2B2D31', borderTop: `1px solid ${p.rule}` }}>{p.input}</div>
+                          <div style={{ padding: '9px 12px', fontFamily: "'Geist Mono',monospace", fontSize: '11px', color: '#E8E9EB', background: '#2B2D31', borderTop: `1px solid ${p.rule}` }}>{p.action}</div>
                         </Fragment>
                       ))}
                     </div>
-                    <div style={{ fontSize: '11px', lineHeight: '1.6', color: '#8D8779', textWrap: 'pretty' }}>Notes go to the armed (record-enabled) instrument track — enable Record to capture them, or use the audition track to just play.</div>
-                    <div style={{ fontSize: '11px', lineHeight: '1.6', color: '#6E6A5E', textWrap: 'pretty' }}>Any button can be mapped to a control instead: click MIDI in the top-right, click the control, then press the button. A mapped button drives that control and stops playing its note; the rest of the pad keeps the layout above. The sticks and the trigger travel map the same way and are continuous, so they suit a knob or a fader — they play no notes, and do nothing until mapped. Mappings are listed in the browser's MIDI Map tab and travel with the project.</div>
+                    <div style={{ fontSize: '11px', lineHeight: '1.6', color: '#A4A9B0', textWrap: 'pretty' }}>Notes go to the armed (record-enabled) instrument track — enable Record to capture them, or use the audition track to just play.</div>
+                    <div style={{ fontSize: '11px', lineHeight: '1.6', color: '#92969D', textWrap: 'pretty' }}>Any button can be mapped to a control instead: click MIDI in the top-right, click the control, then press the button. A mapped button drives that control and stops playing its note; the rest of the pad keeps the layout above. The sticks and the trigger travel map the same way and are continuous, so they suit a knob or a fader — they play no notes, and do nothing until mapped. Mappings are listed in the browser's MIDI Map tab and travel with the project.</div>
                   </div>
                 </div>
               </>
@@ -392,28 +392,28 @@ class SettingsWindowImpl extends ReactComponent<any, any> {
               <>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '22px' }}>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                    <div style={{ fontSize: '10px', fontWeight: '700', letterSpacing: '.12em', color: '#6E6A5E', paddingBottom: '2px' }}>PLUGIN SCAN FOLDERS</div>
-                    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '132px', background: '#100F0D', border: '1px solid #2C2923', borderRadius: '6px', padding: '4px', boxSizing: 'border-box' }}>
+                    <div style={{ fontSize: '10px', fontWeight: '700', letterSpacing: '.12em', color: '#92969D', paddingBottom: '2px' }}>PLUGIN SCAN FOLDERS</div>
+                    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '132px', background: '#17181A', border: '1px solid #141517', borderRadius: '6px', padding: '4px', boxSizing: 'border-box' }}>
                       {folderRows.map((d, dI) => (
                         <Fragment key={dI}>
                           <div onClick={d.onClick} style={{ height: '28px', display: 'flex', alignItems: 'center', gap: '8px', padding: '0 8px', borderRadius: '4px', cursor: 'pointer', background: d.bg }}>
                             <span style={{ flex: '1', minWidth: '0', fontFamily: "'Geist Mono',monospace", fontSize: '11px', color: d.ink, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{d.path}</span>
-                            <span style={{ fontSize: '10px', color: '#6E6A5E' }}>{d.tag}</span>
+                            <span style={{ fontSize: '10px', color: '#92969D' }}>{d.tag}</span>
                           </div>
                         </Fragment>
                       ))}
                     </div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                      <div className="st5" onClick={addFolder} style={{ height: '28px', display: 'flex', alignItems: 'center', padding: '0 14px', borderRadius: '5px', cursor: 'pointer', fontSize: '12px', fontWeight: '500', background: '#1F1D19', color: '#E9E4D8', border: '1px solid #2C2923', boxSizing: 'border-box' }}>Add folder…</div>
-                      <div onClick={removeFolder} style={{ height: '28px', display: 'flex', alignItems: 'center', padding: '0 14px', borderRadius: '5px', cursor: 'pointer', fontSize: '12px', fontWeight: '500', background: '#1F1D19', color: removeInk, border: '1px solid #2C2923', boxSizing: 'border-box' }}>Remove</div>
+                      <div className="st5" onClick={addFolder} style={{ height: '28px', display: 'flex', alignItems: 'center', padding: '0 14px', borderRadius: '5px', cursor: 'pointer', fontSize: '12px', fontWeight: '500', background: '#34363B', color: '#E8E9EB', border: '1px solid #141517', boxSizing: 'border-box' }}>Add folder…</div>
+                      <div onClick={removeFolder} style={{ height: '28px', display: 'flex', alignItems: 'center', padding: '0 14px', borderRadius: '5px', cursor: 'pointer', fontSize: '12px', fontWeight: '500', background: '#34363B', color: removeInk, border: '1px solid #141517', boxSizing: 'border-box' }}>Remove</div>
                     </div>
-                    <div style={{ fontSize: '11px', lineHeight: '1.55', color: '#6E6A5E' }}>Extra folders are searched for VST3 plugins on the next rescan (AU uses the system registry).</div>
+                    <div style={{ fontSize: '11px', lineHeight: '1.55', color: '#92969D' }}>Extra folders are searched for VST3 plugins on the next rescan (AU uses the system registry).</div>
                   </div>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', borderTop: '1px solid #221F1A', paddingTop: '20px' }}>
-                    <div style={{ fontSize: '10px', fontWeight: '700', letterSpacing: '.12em', color: '#6E6A5E', paddingBottom: '2px' }}>SCAN</div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', borderTop: '1px solid #45484E', paddingTop: '20px' }}>
+                    <div style={{ fontSize: '10px', fontWeight: '700', letterSpacing: '.12em', color: '#92969D', paddingBottom: '2px' }}>SCAN</div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-                      <div className="st6" onClick={rescan} style={{ height: '28px', display: 'flex', alignItems: 'center', padding: '0 14px', borderRadius: '5px', cursor: 'pointer', fontSize: '12px', fontWeight: '500', background: '#1F1D19', color: '#E9E4D8', border: '1px solid #2C2923', boxSizing: 'border-box' }}>{scanLabel}</div>
-                      <span style={{ fontSize: '11px', color: '#6E6A5E' }}>{scanNote}</span>
+                      <div className="st6" onClick={rescan} style={{ height: '28px', display: 'flex', alignItems: 'center', padding: '0 14px', borderRadius: '5px', cursor: 'pointer', fontSize: '12px', fontWeight: '500', background: '#34363B', color: '#E8E9EB', border: '1px solid #141517', boxSizing: 'border-box' }}>{scanLabel}</div>
+                      <span style={{ fontSize: '11px', color: '#92969D' }}>{scanNote}</span>
                     </div>
                   </div>
                 </div>
@@ -422,9 +422,9 @@ class SettingsWindowImpl extends ReactComponent<any, any> {
             {isGet ? (
               <>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-                  <div style={{ fontSize: '11px', lineHeight: '1.6', color: '#8D8779', textWrap: 'pretty', maxWidth: '600px' }}>Open-source VST3 plugins from the Nota plugin registry. Each one downloads from the project's own GitHub release, is checked against the registry's checksum and unpacked — installers never run.</div>
+                  <div style={{ fontSize: '11px', lineHeight: '1.6', color: '#A4A9B0', textWrap: 'pretty', maxWidth: '600px' }}>Open-source VST3 plugins from the Nota plugin registry. Each one downloads from the project's own GitHub release, is checked against the registry's checksum and unpacked — installers never run.</div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
-                    <div style={{ display: 'flex', padding: '2px', gap: '2px', background: '#100F0D', border: '1px solid #2C2923', borderRadius: '6px' }}>
+                    <div style={{ display: 'flex', padding: '2px', gap: '2px', background: '#17181A', border: '1px solid #141517', borderRadius: '6px' }}>
                       {filters.map((c, cI) => (
                         <Fragment key={cI}>
                           <div onClick={c.onClick} style={{ height: '24px', display: 'flex', alignItems: 'center', gap: '6px', padding: '0 10px', borderRadius: '4px', cursor: 'pointer', fontSize: '12px', fontWeight: c.weight, background: c.bg, color: c.ink }}>
@@ -434,29 +434,29 @@ class SettingsWindowImpl extends ReactComponent<any, any> {
                         </Fragment>
                       ))}
                     </div>
-                    <div style={{ flex: '1', minWidth: '140px', height: '30px', display: 'flex', alignItems: 'center', gap: '7px', padding: '0 10px', background: '#100F0D', border: '1px solid #2C2923', borderRadius: '6px', boxSizing: 'border-box' }}>
-                      <svg width="11" height="11" viewBox={'0 0 24 24'} fill="none" stroke="#6E6A5E" strokeWidth="2">
+                    <div style={{ flex: '1', minWidth: '140px', height: '30px', display: 'flex', alignItems: 'center', gap: '7px', padding: '0 10px', background: '#17181A', border: '1px solid #141517', borderRadius: '6px', boxSizing: 'border-box' }}>
+                      <svg width="11" height="11" viewBox={'0 0 24 24'} fill="none" stroke="#92969D" strokeWidth="2">
                         <circle cx="10.5" cy="10.5" r="6.5" />
                         <path d="M15.5 15.5 L21 21" />
                       </svg>
-                      <input value={q} onChange={onQ} placeholder="Search" style={{ flex: '1', minWidth: '0', background: 'transparent', border: '0', outline: 'none', fontFamily: 'Geist,system-ui,sans-serif', fontSize: '12px', color: '#E9E4D8' }} />
+                      <input value={q} onChange={onQ} placeholder="Search" style={{ flex: '1', minWidth: '0', background: 'transparent', border: '0', outline: 'none', fontFamily: 'Geist,system-ui,sans-serif', fontSize: '12px', color: '#E8E9EB' }} />
                     </div>
-                    <div className="st7" onClick={refresh} style={{ height: '30px', display: 'flex', alignItems: 'center', padding: '0 12px', borderRadius: '6px', cursor: 'pointer', fontSize: '12px', fontWeight: '500', color: '#A39D8F' }}>{refreshLabel}</div>
+                    <div className="st7" onClick={refresh} style={{ height: '30px', display: 'flex', alignItems: 'center', padding: '0 12px', borderRadius: '6px', cursor: 'pointer', fontSize: '12px', fontWeight: '500', color: '#C0C4C9' }}>{refreshLabel}</div>
                   </div>
-                  <div style={{ display: 'flex', flexDirection: 'column', border: '1px solid #2C2923', borderRadius: '6px', overflow: 'hidden' }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', border: '1px solid #141517', borderRadius: '6px', overflow: 'hidden' }}>
                     {plugins.map((p, pI) => (
                       <Fragment key={pI}>
-                        <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) auto', gap: '16px', padding: '14px 14px 14px 16px', background: '#141310', borderTop: `1px solid ${p.rule}` }}>
+                        <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) auto', gap: '16px', padding: '14px 14px 14px 16px', background: '#2B2D31', borderTop: `1px solid ${p.rule}` }}>
                           <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', minWidth: '0' }}>
                             <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px', flexWrap: 'wrap' }}>
-                              <span style={{ fontSize: '13px', fontWeight: '600', color: '#E9E4D8' }}>{p.name}</span>
-                              <span style={{ fontFamily: "'Geist Mono',monospace", fontSize: '9px', letterSpacing: '.08em', color: '#8D8779' }}>{p.type}</span>
+                              <span style={{ fontSize: '13px', fontWeight: '600', color: '#E8E9EB' }}>{p.name}</span>
+                              <span style={{ fontFamily: "'Geist Mono',monospace", fontSize: '9px', letterSpacing: '.08em', color: '#A4A9B0' }}>{p.type}</span>
                             </div>
-                            <div style={{ fontFamily: "'Geist Mono',monospace", fontSize: '10px', color: '#6E6A5E' }}>{p.meta}</div>
-                            <div style={{ fontSize: '12px', lineHeight: '1.5', color: '#A39D8F', textWrap: 'pretty' }}>{p.desc}</div>
+                            <div style={{ fontFamily: "'Geist Mono',monospace", fontSize: '10px', color: '#92969D' }}>{p.meta}</div>
+                            <div style={{ fontSize: '12px', lineHeight: '1.5', color: '#C0C4C9', textWrap: 'pretty' }}>{p.desc}</div>
                             {p.note ? (
                               <>
-                                <div style={{ fontSize: '11px', lineHeight: '1.5', color: '#6E6A5E' }}>{p.note}</div>
+                                <div style={{ fontSize: '11px', lineHeight: '1.5', color: '#92969D' }}>{p.note}</div>
                               </>
                             ) : null}
                           </div>
@@ -464,26 +464,26 @@ class SettingsWindowImpl extends ReactComponent<any, any> {
                             {p.isInstalled ? (
                               <>
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '6px', height: '26px' }}>
-                                  <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#D8A03D' }} />
-                                  <span style={{ fontSize: '11px', fontWeight: '500', color: '#D8A03D' }}>Installed</span>
+                                  <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#FF9F1C' }} />
+                                  <span style={{ fontSize: '11px', fontWeight: '500', color: '#FF9F1C' }}>Installed</span>
                                 </div>
-                                <div className="st8" onClick={p.onRemove} style={{ fontSize: '11px', color: '#8D8779', cursor: 'pointer' }}>Remove</div>
+                                <div className="st8" onClick={p.onRemove} style={{ fontSize: '11px', color: '#A4A9B0', cursor: 'pointer' }}>Remove</div>
                               </>
                             ) : null}
                             {p.canInstall ? (
                               <>
-                                <div onClick={p.onInstall} style={{ height: '26px', minWidth: '88px', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '0 12px', borderRadius: '5px', cursor: 'pointer', fontSize: '12px', fontWeight: '500', background: p.btnBg, color: p.btnInk, border: '1px solid #2C2923', boxSizing: 'border-box' }}>{p.btnLabel}</div>
+                                <div onClick={p.onInstall} style={{ height: '26px', minWidth: '88px', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '0 12px', borderRadius: '5px', cursor: 'pointer', fontSize: '12px', fontWeight: '500', background: p.btnBg, color: p.btnInk, border: '1px solid #141517', boxSizing: 'border-box' }}>{p.btnLabel}</div>
                               </>
                             ) : null}
-                            <span style={{ fontFamily: "'Geist Mono',monospace", fontSize: '10px', color: '#6E6A5E' }}>{p.sizeLabel}</span>
-                            <a href="#" style={{ fontSize: '11px', color: '#8D8779' }}>Source ↗</a>
+                            <span style={{ fontFamily: "'Geist Mono',monospace", fontSize: '10px', color: '#92969D' }}>{p.sizeLabel}</span>
+                            <a href="#" style={{ fontSize: '11px', color: '#A4A9B0' }}>Source ↗</a>
                           </div>
                         </div>
                       </Fragment>
                     ))}
                     {noPlugins ? (
                       <>
-                        <div style={{ padding: '28px', textAlign: 'center', fontSize: '12px', color: '#6E6A5E', background: '#141310' }}>Nothing matches.</div>
+                        <div style={{ padding: '28px', textAlign: 'center', fontSize: '12px', color: '#92969D', background: '#2B2D31' }}>Nothing matches.</div>
                       </>
                     ) : null}
                   </div>
@@ -493,17 +493,17 @@ class SettingsWindowImpl extends ReactComponent<any, any> {
             {isLibrary ? (
               <>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                  <div style={{ fontSize: '10px', fontWeight: '700', letterSpacing: '.12em', color: '#6E6A5E', paddingBottom: '2px' }}>CONTENT FOLDERS</div>
-                  <div style={{ display: 'flex', flexDirection: 'column', border: '1px solid #2C2923', borderRadius: '6px', overflow: 'hidden' }}>
+                  <div style={{ fontSize: '10px', fontWeight: '700', letterSpacing: '.12em', color: '#92969D', paddingBottom: '2px' }}>CONTENT FOLDERS</div>
+                  <div style={{ display: 'flex', flexDirection: 'column', border: '1px solid #141517', borderRadius: '6px', overflow: 'hidden' }}>
                     {libRows.map((l, lI) => (
                       <Fragment key={lI}>
-                        <div style={{ display: 'grid', gridTemplateColumns: '110px minmax(0,1fr) auto', alignItems: 'center', gap: '12px', padding: '12px 14px', background: '#141310', borderTop: `1px solid ${l.rule}` }}>
-                          <span style={{ fontSize: '12px', color: '#A39D8F' }}>{l.label}</span>
+                        <div style={{ display: 'grid', gridTemplateColumns: '110px minmax(0,1fr) auto', alignItems: 'center', gap: '12px', padding: '12px 14px', background: '#2B2D31', borderTop: `1px solid ${l.rule}` }}>
+                          <span style={{ fontSize: '12px', color: '#C0C4C9' }}>{l.label}</span>
                           <div style={{ display: 'flex', flexDirection: 'column', gap: '3px', minWidth: '0' }}>
-                            <span style={{ fontFamily: "'Geist Mono',monospace", fontSize: '11px', color: '#E9E4D8', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{l.path}</span>
-                            <span style={{ fontSize: '10px', color: '#6E6A5E' }}>{l.tag}</span>
+                            <span style={{ fontFamily: "'Geist Mono',monospace", fontSize: '11px', color: '#E8E9EB', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{l.path}</span>
+                            <span style={{ fontSize: '10px', color: '#92969D' }}>{l.tag}</span>
                           </div>
-                          <div className="st9" onClick={l.onClick} style={{ height: '28px', display: 'flex', alignItems: 'center', padding: '0 14px', borderRadius: '5px', cursor: 'pointer', fontSize: '12px', fontWeight: '500', background: '#1F1D19', color: '#E9E4D8', border: '1px solid #2C2923', boxSizing: 'border-box' }}>Choose…</div>
+                          <div className="st9" onClick={l.onClick} style={{ height: '28px', display: 'flex', alignItems: 'center', padding: '0 14px', borderRadius: '5px', cursor: 'pointer', fontSize: '12px', fontWeight: '500', background: '#34363B', color: '#E8E9EB', border: '1px solid #141517', boxSizing: 'border-box' }}>Choose…</div>
                         </div>
                       </Fragment>
                     ))}
@@ -515,10 +515,10 @@ class SettingsWindowImpl extends ReactComponent<any, any> {
               <>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '22px' }}>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                    <div style={{ fontSize: '10px', fontWeight: '700', letterSpacing: '.12em', color: '#6E6A5E', paddingBottom: '2px' }}>UI</div>
+                    <div style={{ fontSize: '10px', fontWeight: '700', letterSpacing: '.12em', color: '#92969D', paddingBottom: '2px' }}>UI</div>
                     <div style={{ display: 'grid', gridTemplateColumns: '150px minmax(0,1fr)', alignItems: 'center' }}>
-                      <span style={{ fontSize: '12px', color: '#A39D8F' }}>Theme</span>
-                      <div style={{ display: 'flex', width: 'max-content', padding: '2px', gap: '2px', background: '#100F0D', border: '1px solid #2C2923', borderRadius: '6px' }}>
+                      <span style={{ fontSize: '12px', color: '#C0C4C9' }}>Theme</span>
+                      <div style={{ display: 'flex', width: 'max-content', padding: '2px', gap: '2px', background: '#17181A', border: '1px solid #141517', borderRadius: '6px' }}>
                         {themes.map((c, cI) => (
                           <Fragment key={cI}>
                             <div onClick={c.onClick} style={{ height: '24px', display: 'flex', alignItems: 'center', gap: '7px', padding: '0 10px', borderRadius: '4px', cursor: 'pointer', fontSize: '12px', fontWeight: c.weight, background: c.bg, color: c.ink }}>
@@ -531,34 +531,34 @@ class SettingsWindowImpl extends ReactComponent<any, any> {
                     </div>
                     <div style={{ display: 'grid', gridTemplateColumns: '150px minmax(0,1fr)' }}>
                       <span />
-                      <div style={{ fontSize: '11px', lineHeight: '1.55', color: '#6E6A5E', textWrap: 'pretty' }}>Ember Graphite is the warm dark palette; Ember Paper is the same system on a light ground. System follows the OS appearance and switches with it.</div>
+                      <div style={{ fontSize: '11px', lineHeight: '1.55', color: '#92969D', textWrap: 'pretty' }}>Studio Dark is the default; Studio Light keeps the same roles in light greys. Ember Graphite and Ember Paper are Nota’s earlier warm browns and brass. Follow system switches between a dark and a light theme with the OS.</div>
                     </div>
                   </div>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', borderTop: '1px solid #221F1A', paddingTop: '20px' }}>
-                    <div style={{ fontSize: '10px', fontWeight: '700', letterSpacing: '.12em', color: '#6E6A5E', paddingBottom: '2px' }}>AI CONTROL (MCP)</div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', borderTop: '1px solid #45484E', paddingTop: '20px' }}>
+                    <div style={{ fontSize: '10px', fontWeight: '700', letterSpacing: '.12em', color: '#92969D', paddingBottom: '2px' }}>AI CONTROL (MCP)</div>
                     <div onClick={toggleMcp} style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer' }}>
                       <div style={{ width: '28px', height: '16px', flex: 'none', borderRadius: '8px', position: 'relative', background: mcpSw.track }}>
                         <div style={{ position: 'absolute', top: '2px', left: mcpSw.knobX, width: '12px', height: '12px', borderRadius: '50%', background: mcpSw.knob }} />
                       </div>
-                      <span style={{ fontSize: '12px', color: '#E9E4D8' }}>Enable MCP server (let an AI drive Nota)</span>
+                      <span style={{ fontSize: '12px', color: '#E8E9EB' }}>Enable MCP server (let an AI drive Nota)</span>
                     </div>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', opacity: mcpOpacity }}>
                       <div style={{ display: 'grid', gridTemplateColumns: '150px minmax(0,1fr)', alignItems: 'center' }}>
-                        <span style={{ fontSize: '12px', color: '#A39D8F' }}>Port</span>
-                        <input value={port} onChange={onPort} style={{ width: '96px', height: '28px', padding: '0 10px', background: '#100F0D', border: '1px solid #2C2923', borderRadius: '5px', outline: 'none', fontFamily: "'Geist Mono',monospace", fontSize: '12px', color: '#E9E4D8', boxSizing: 'border-box' }} />
+                        <span style={{ fontSize: '12px', color: '#C0C4C9' }}>Port</span>
+                        <input value={port} onChange={onPort} style={{ width: '96px', height: '28px', padding: '0 10px', background: '#17181A', border: '1px solid #141517', borderRadius: '5px', outline: 'none', fontFamily: "'Geist Mono',monospace", fontSize: '12px', color: '#E8E9EB', boxSizing: 'border-box' }} />
                       </div>
                       <div style={{ display: 'grid', gridTemplateColumns: '150px minmax(0,1fr)', alignItems: 'center' }}>
-                        <span style={{ fontSize: '12px', color: '#A39D8F' }}>Status</span>
+                        <span style={{ fontSize: '12px', color: '#C0C4C9' }}>Status</span>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: '0' }}>
                           <span style={{ width: '6px', height: '6px', borderRadius: '50%', flex: 'none', background: mcpDot }} />
-                          <span style={{ fontFamily: "'Geist Mono',monospace", fontSize: '11px', color: '#A39D8F', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{mcpStatus}</span>
+                          <span style={{ fontFamily: "'Geist Mono',monospace", fontSize: '11px', color: '#C0C4C9', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{mcpStatus}</span>
                         </div>
                       </div>
                       <div style={{ display: 'grid', gridTemplateColumns: '150px minmax(0,1fr)', alignItems: 'start' }}>
                         <span />
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', alignItems: 'flex-start' }}>
-                          <div className="st10" onClick={copyConfig} style={{ height: '28px', display: 'flex', alignItems: 'center', padding: '0 14px', borderRadius: '5px', cursor: 'pointer', fontSize: '12px', fontWeight: '500', background: '#1F1D19', color: '#E9E4D8', border: '1px solid #2C2923', boxSizing: 'border-box' }}>{copyLabel}</div>
-                          <div style={{ fontSize: '11px', lineHeight: '1.55', color: '#6E6A5E', textWrap: 'pretty' }}>Add this config (or the URL) as an MCP server in Claude Desktop / Claude Code. Loopback only; off by default.</div>
+                          <div className="st10" onClick={copyConfig} style={{ height: '28px', display: 'flex', alignItems: 'center', padding: '0 14px', borderRadius: '5px', cursor: 'pointer', fontSize: '12px', fontWeight: '500', background: '#34363B', color: '#E8E9EB', border: '1px solid #141517', boxSizing: 'border-box' }}>{copyLabel}</div>
+                          <div style={{ fontSize: '11px', lineHeight: '1.55', color: '#92969D', textWrap: 'pretty' }}>Add this config (or the URL) as an MCP server in Claude Desktop / Claude Code. Loopback only; off by default.</div>
                         </div>
                       </div>
                     </div>
@@ -569,32 +569,32 @@ class SettingsWindowImpl extends ReactComponent<any, any> {
             {isShortcuts ? (
               <>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
-                  <div style={{ height: '30px', maxWidth: '320px', display: 'flex', alignItems: 'center', gap: '7px', padding: '0 10px', background: '#100F0D', border: '1px solid #2C2923', borderRadius: '6px', boxSizing: 'border-box' }}>
-                    <svg width="11" height="11" viewBox={'0 0 24 24'} fill="none" stroke="#6E6A5E" strokeWidth="2">
+                  <div style={{ height: '30px', maxWidth: '320px', display: 'flex', alignItems: 'center', gap: '7px', padding: '0 10px', background: '#17181A', border: '1px solid #141517', borderRadius: '6px', boxSizing: 'border-box' }}>
+                    <svg width="11" height="11" viewBox={'0 0 24 24'} fill="none" stroke="#92969D" strokeWidth="2">
                       <circle cx="10.5" cy="10.5" r="6.5" />
                       <path d="M15.5 15.5 L21 21" />
                     </svg>
-                    <input value={sq} onChange={onSq} placeholder="Filter shortcuts" style={{ flex: '1', minWidth: '0', background: 'transparent', border: '0', outline: 'none', fontFamily: 'Geist,system-ui,sans-serif', fontSize: '12px', color: '#E9E4D8' }} />
+                    <input value={sq} onChange={onSq} placeholder="Filter shortcuts" style={{ flex: '1', minWidth: '0', background: 'transparent', border: '0', outline: 'none', fontFamily: 'Geist,system-ui,sans-serif', fontSize: '12px', color: '#E8E9EB' }} />
                   </div>
                   {shortcutGroups.map((g, gI) => (
                     <Fragment key={gI}>
                       <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', paddingBottom: '4px' }}>
-                          <span style={{ fontSize: '10px', fontWeight: '700', letterSpacing: '.12em', color: '#6E6A5E' }}>{g.title}</span>
-                          <span style={{ fontFamily: "'Geist Mono',monospace", fontSize: '9px', color: '#55514A' }}>{g.count}</span>
+                          <span style={{ fontSize: '10px', fontWeight: '700', letterSpacing: '.12em', color: '#92969D' }}>{g.title}</span>
+                          <span style={{ fontFamily: "'Geist Mono',monospace", fontSize: '9px', color: '#82868C' }}>{g.count}</span>
                         </div>
-                        <div style={{ display: 'flex', flexDirection: 'column', border: '1px solid #2C2923', borderRadius: '6px', overflow: 'hidden' }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', border: '1px solid #141517', borderRadius: '6px', overflow: 'hidden' }}>
                           {g.rows.map((s, sI) => (
                             <Fragment key={sI}>
-                              <div style={{ display: 'grid', gridTemplateColumns: '150px minmax(0,1fr)', alignItems: 'center', gap: '12px', padding: '7px 12px', minHeight: '34px', background: '#141310', borderTop: `1px solid ${s.rule}`, boxSizing: 'border-box' }}>
+                              <div style={{ display: 'grid', gridTemplateColumns: '150px minmax(0,1fr)', alignItems: 'center', gap: '12px', padding: '7px 12px', minHeight: '34px', background: '#2B2D31', borderTop: `1px solid ${s.rule}`, boxSizing: 'border-box' }}>
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '4px', flexWrap: 'wrap' }}>
                                   {s.keys.map((k, kI) => (
                                     <Fragment key={kI}>
-                                      <span style={{ height: '20px', minWidth: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '0 6px', fontFamily: "'Geist Mono',monospace", fontSize: '11px', color: '#E9E4D8', background: '#1F1D19', border: '1px solid #2C2923', borderBottomColor: '#3A362E', borderRadius: '4px', boxSizing: 'border-box' }}>{k.label}</span>
+                                      <span style={{ height: '20px', minWidth: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '0 6px', fontFamily: "'Geist Mono',monospace", fontSize: '11px', color: '#E8E9EB', background: '#34363B', border: '1px solid #141517', borderBottomColor: '#45484E', borderRadius: '4px', boxSizing: 'border-box' }}>{k.label}</span>
                                     </Fragment>
                                   ))}
                                 </div>
-                                <span style={{ fontSize: '12px', lineHeight: '1.45', color: '#A39D8F', textWrap: 'pretty' }}>{s.desc}</span>
+                                <span style={{ fontSize: '12px', lineHeight: '1.45', color: '#C0C4C9', textWrap: 'pretty' }}>{s.desc}</span>
                               </div>
                             </Fragment>
                           ))}

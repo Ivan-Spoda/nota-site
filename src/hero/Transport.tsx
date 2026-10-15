@@ -1,15 +1,15 @@
 // The transport island of the main window, built from MainWindow.axaml / NotaTheme.axaml
-// (Ember Graphite tokens): project name and view switch, the console (stop · play · record ·
+// (Studio Dark tokens): project name and view switch, the console (stop · play · record ·
 // position · loop in one recess), value-over-label readouts, switch icons, MIDI / Remote
 // chips, CPU and the master well.
 import { useState, type CSSProperties, type ReactNode } from "react";
 
 const C = {
-  abyss: "#0A0908", sunken: "#100F0D", panel: "#141310", card: "#171613", raised: "#1C1A16",
-  border: "#2C2923", strong: "#3A362D", hair: "#221F1A",
-  ink1: "#E9E4D8", ink2: "#C7C0B0", ink3: "#A39D8F", ink5: "#6E6A5E",
-  accent: "#D8A03D", accentSoft: "#241F17", accentEdge: "#6B5326", onAccent: "#171613",
-  record: "#C25B44", success: "#58B368",
+  abyss: "#17181A", sunken: "#17181A", panel: "#2B2D31", card: "#2B2D31", raised: "#34363B",
+  border: "#141517", strong: "#45484E", hair: "#45484E",
+  ink1: "#E8E9EB", ink2: "#D4D6DA", ink3: "#C0C4C9", ink5: "#92969D",
+  accent: "#FF9F1C", accentSoft: "#393C41", accentEdge: "#BF7D22", onAccent: "#17181A",
+  record: "#F06A6E", success: "#6CC673",
 };
 const MONO = "'Geist Mono',monospace";
 const cellLabel: CSSProperties = { fontSize: "8px", fontWeight: 700, letterSpacing: ".1em", lineHeight: "10px", color: C.ink5 };
@@ -78,7 +78,7 @@ export function Transport({ project, view, onView, playing, pos, onPlay, onStop 
           </TpButton>
           <div title="Record" onClick={() => setRec(!rec)}
             style={{ width: "28px", height: "28px", boxSizing: "border-box", borderRadius: "5px", background: rec ? C.record : C.raised, border: `1px solid ${rec ? C.record : C.strong}`, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}>
-            <div style={{ width: "10px", height: "10px", borderRadius: "50%", background: rec ? "#F2E2DC" : C.record }} />
+            <div style={{ width: "10px", height: "10px", borderRadius: "50%", background: rec ? "#FFFFFF" : C.record }} />
           </div>
         </div>
         <div style={hairline(24)} />

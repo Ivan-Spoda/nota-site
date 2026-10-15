@@ -8,9 +8,9 @@ const ALL = DEVICES as Device[];
 const BASE = import.meta.env.BASE_URL + "devices/";
 
 const CATEGORIES = [
-  { title: "Instruments", color: "#5AA0B8" },
-  { title: "Audio effects", color: "#D8A03D" },
-  { title: "MIDI effects", color: "#9AA64A" },
+  { title: "Instruments", color: "#6A9FD8" },
+  { title: "Audio effects", color: "#FF9F1C" },
+  { title: "MIDI effects", color: "#B3B45E" },
 ];
 
 // What each device is, as the app's browser describes it.
@@ -55,13 +55,13 @@ export function DeviceGallery() {
     <div style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(min(100%,400px),1fr))", gap: "48px", alignItems: "end" }}>
         <div style={{ display: "flex", flexDirection: "column", gap: "16px", maxWidth: "520px" }}>
-          <div style={{ fontFamily: mono, fontSize: "11px", letterSpacing: ".14em", color: "var(--ink4)" }}>INSTRUMENTS AND EFFECTS</div>
+          <div style={{ fontSize: "11px", fontWeight: "500", color: "var(--ink4)" }}>Instruments and effects</div>
           <h3 style={{ margin: 0, fontSize: "32px", fontWeight: 600, letterSpacing: "-.02em", lineHeight: 1.1 }}>46 devices in the box, each with live graphs and presets.</h3>
         </div>
         <p style={{ margin: 0, fontSize: "16px", lineHeight: 1.65, color: "var(--ink3)", textWrap: "pretty", maxWidth: "520px" }}>Subtractive, FM, wavetable, granular, physical and vector synths, a sampler and two drum machines with 29 kits. Every effect shows what it does to the sound, and most ship with around 30 presets. Pick a device to see it.</p>
       </div>
 
-      <div className="gallery" style={{ background: "var(--surface)", border: "1px solid var(--line)", borderRadius: "12px", padding: "16px", display: "grid", gridTemplateColumns: "minmax(0,1fr) 300px", gap: "16px", boxSizing: "border-box" }}>
+      <div className="gallery" style={{ background: "var(--surface)", border: "1px solid var(--line)", borderRadius: "4px", padding: "16px", display: "grid", gridTemplateColumns: "minmax(0,1fr) 300px", gap: "16px", boxSizing: "border-box" }}>
         {/* Viewer */}
         <div style={{ display: "flex", flexDirection: "column", gap: "12px", minWidth: 0 }}>
           <div style={{ display: "flex", alignItems: "center", gap: "12px", flexWrap: "wrap", padding: "2px 4px 0" }}>
@@ -72,19 +72,19 @@ export function DeviceGallery() {
             <div style={{ display: "flex", gap: "4px" }}>
               {[-1, 1].map((d) => (
                 <button key={d} className="g-arrow" onClick={() => step(d)} aria-label={d < 0 ? "Previous device" : "Next device"}
-                  style={{ width: "30px", height: "28px", borderRadius: "5px", border: "1px solid var(--line)", background: "var(--raised)", color: "var(--ink2)", cursor: "pointer", fontSize: "14px" }}>{d < 0 ? "‹" : "›"}</button>
+                  style={{ width: "30px", height: "28px", borderRadius: "3px", border: "1px solid var(--line)", background: "var(--raised)", color: "var(--ink2)", cursor: "pointer", fontSize: "14px" }}>{d < 0 ? "‹" : "›"}</button>
               ))}
             </div>
           </div>
-          <div style={{ position: "relative", aspectRatio: "702 / 262", borderRadius: "8px", overflow: "hidden", background: "#0C0B09", border: "1px solid var(--line)" }}>
+          <div style={{ position: "relative", aspectRatio: "702 / 262", borderRadius: "3px", overflow: "hidden", background: "#141517", border: "1px solid var(--line)" }}>
             <img key={v.src} src={BASE + v.src} alt={`Nota ${dev.name} — ${v.label}`} width={1404} height={524} decoding="async"
               style={{ display: "block", width: "100%", height: "100%" }} />
           </div>
           {dev.views.length > 1 && (
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "4px", padding: "3px", alignSelf: "flex-start", background: "var(--well)", border: "1px solid var(--hair)", borderRadius: "6px" }}>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "4px", padding: "3px", alignSelf: "flex-start", background: "var(--well)", border: "1px solid var(--hair)", borderRadius: "3px" }}>
               {dev.views.map((x, i) => (
                 <button key={x.label} onClick={() => setView(i)}
-                  style={{ height: "26px", padding: "0 10px", border: "none", borderRadius: "4px", cursor: "pointer", fontFamily: "Geist, system-ui, sans-serif", fontSize: "12px", fontWeight: 600, background: i === view ? "var(--brass)" : "transparent", color: i === view ? "var(--onBrass)" : "var(--ink3)" }}>{x.label}</button>
+                  style={{ height: "26px", padding: "0 10px", border: "none", borderRadius: "4px", cursor: "pointer", fontFamily: "Geist, system-ui, sans-serif", fontSize: "12px", fontWeight: 600, background: i === view ? "var(--accent)" : "transparent", color: i === view ? "var(--onAccent)" : "var(--ink3)" }}>{x.label}</button>
               ))}
             </div>
           )}
@@ -92,12 +92,12 @@ export function DeviceGallery() {
 
         {/* Picker */}
         <div style={{ display: "flex", flexDirection: "column", gap: "12px", minWidth: 0 }}>
-          <div style={{ display: "flex", padding: "3px", background: "var(--well)", border: "1px solid var(--hair)", borderRadius: "6px" }}>
+          <div style={{ display: "flex", padding: "3px", background: "var(--well)", border: "1px solid var(--hair)", borderRadius: "3px" }}>
             {CATEGORIES.map((c) => {
               const on = c.title === cat;
               return (
                 <button key={c.title} onClick={() => pickCat(c.title)}
-                  style={{ flex: 1, height: "28px", border: "none", borderRadius: "4px", cursor: "pointer", fontFamily: "Geist, system-ui, sans-serif", fontSize: "11px", fontWeight: 600, whiteSpace: "nowrap", background: on ? "var(--brass)" : "transparent", color: on ? "var(--onBrass)" : "var(--ink3)" }}>
+                  style={{ flex: 1, height: "28px", border: "none", borderRadius: "4px", cursor: "pointer", fontFamily: "Geist, system-ui, sans-serif", fontSize: "11px", fontWeight: 600, whiteSpace: "nowrap", background: on ? "var(--accent)" : "transparent", color: on ? "var(--onAccent)" : "var(--ink3)" }}>
                   {c.title.replace(" effects", " FX")} <span style={{ fontFamily: mono, fontWeight: 400, opacity: 0.7 }}>{ALL.filter((d) => d.category === c.title).length}</span>
                 </button>
               );
@@ -108,7 +108,7 @@ export function DeviceGallery() {
               const on = d.name === dev.name;
               return (
                 <button key={d.name} className="g-chip" onClick={() => pick(d.name)}
-                  style={{ height: "28px", padding: "0 10px", display: "flex", alignItems: "center", gap: "6px", borderRadius: "4px", cursor: "pointer", boxSizing: "border-box", fontFamily: "Geist, system-ui, sans-serif", fontSize: "12px", background: on ? "var(--brassSoft)" : "var(--well)", border: `1px solid ${on ? "var(--brassEdge)" : "var(--hair)"}`, color: on ? "var(--ink)" : "var(--ink2)" }}>
+                  style={{ height: "28px", padding: "0 10px", display: "flex", alignItems: "center", gap: "6px", borderRadius: "4px", cursor: "pointer", boxSizing: "border-box", fontFamily: "Geist, system-ui, sans-serif", fontSize: "12px", background: on ? "var(--accentSoft)" : "var(--well)", border: `1px solid ${on ? "var(--accentEdge)" : "var(--hair)"}`, color: on ? "var(--ink)" : "var(--ink2)" }}>
                   <span style={{ width: "6px", height: "6px", borderRadius: "2px", background: CATEGORIES.find((c) => c.title === d.category)!.color }} />{d.name}
                 </button>
               );
