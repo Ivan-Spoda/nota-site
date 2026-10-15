@@ -1,5 +1,8 @@
 import { ScaleToFit } from "../components/ScaleToFit";
-import { SettingsWindow } from "./plugins/SettingsWindow";
+
+// Settings > Downloads rendered from the real app in Studio Dark at 2x, listing the
+// plug-ins in nota-plugins-registry.
+const SHOT = import.meta.env.BASE_URL + "settings/downloads.webp";
 
 export function Plugins() {
   return (
@@ -13,7 +16,7 @@ export function Plugins() {
       </div>
       <div style={{ display: 'flex', justifyContent: 'center' }}>
         <ScaleToFit width={880} height={640}>
-          <SettingsWindow startTab="Downloads" />
+          <img src={SHOT} width={880} height={640} alt="Settings, Downloads page: the plug-in registry with Install buttons" style={{ display: 'block', borderRadius: '4px', border: '1px solid #141517', boxShadow: '0 30px 80px #00000050', boxSizing: 'border-box' }} />
         </ScaleToFit>
       </div>
     </div>

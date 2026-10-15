@@ -4,15 +4,15 @@
   "category": "Instruments",
   "views": [
    {
-    "label": "Warm Pad",
+    "label": "Osc",
     "src": "synth-0.webp"
    },
    {
-    "label": "Square Bass",
+    "label": "Env",
     "src": "synth-1.webp"
    },
    {
-    "label": "Filter Sweep",
+    "label": "Filter",
     "src": "synth-2.webp"
    }
   ]
@@ -38,7 +38,7 @@
     "src": "volt-3.webp"
    },
    {
-    "label": "Growl Bass",
+    "label": "Mod",
     "src": "volt-4.webp"
    },
    {
@@ -68,7 +68,7 @@
     "src": "aurora-3.webp"
    },
    {
-    "label": "Rubber Bass",
+    "label": "Mod",
     "src": "aurora-4.webp"
    },
    {
@@ -90,7 +90,7 @@
     "src": "operator-1.webp"
    },
    {
-    "label": "Harpsichord",
+    "label": "Filter \u00b7 Amp",
     "src": "operator-2.webp"
    }
   ]
@@ -104,7 +104,7 @@
     "src": "bass-0.webp"
    },
    {
-    "label": "Stab Bass",
+    "label": "Mod",
     "src": "bass-1.webp"
    }
   ]
@@ -114,12 +114,16 @@
   "category": "Instruments",
   "views": [
    {
-    "label": "No source",
+    "label": "Init",
     "src": "flux-0.webp"
    },
    {
-    "label": "React",
+    "label": "Moog Lead",
     "src": "flux-1.webp"
+   },
+   {
+    "label": "Filter Chase",
+    "src": "flux-2.webp"
    }
   ]
  },
@@ -158,7 +162,7 @@
     "src": "pentad-0.webp"
    },
    {
-    "label": "Sub Drone",
+    "label": "Filter \u00b7 Amp",
     "src": "pentad-1.webp"
    },
    {
@@ -172,32 +176,24 @@
   "category": "Instruments",
   "views": [
    {
-    "label": "Para Strings",
+    "label": "Osc \u00b7 Mix",
     "src": "consort-0.webp"
    },
    {
-    "label": "Poly Pad",
+    "label": "Filters \u00b7 Env",
     "src": "consort-1.webp"
    },
    {
-    "label": "FM Growl",
+    "label": "LFO \u00b7 Delay",
     "src": "consort-2.webp"
    },
    {
-    "label": "Sync Lead",
+    "label": "Seq",
     "src": "consort-3.webp"
    },
    {
-    "label": "Poly Keys",
+    "label": "Patch",
     "src": "consort-4.webp"
-   },
-   {
-    "label": "Random Arp",
-    "src": "consort-5.webp"
-   },
-   {
-    "label": "Seq",
-    "src": "consort-6.webp"
    }
   ]
  },
@@ -206,8 +202,12 @@
   "category": "Instruments",
   "views": [
    {
-    "label": "Card",
+    "label": "Controllers \u00b7 Osc Bank",
     "src": "monolith-0.webp"
+   },
+   {
+    "label": "Modifiers",
+    "src": "monolith-1.webp"
    }
   ]
  },
@@ -274,8 +274,12 @@
     "src": "drum-rack-1.webp"
    },
    {
-    "label": "Macro",
+    "label": "Chain",
     "src": "drum-rack-2.webp"
+   },
+   {
+    "label": "Macro",
+    "src": "drum-rack-3.webp"
    }
   ]
  },
@@ -284,11 +288,15 @@
   "category": "Instruments",
   "views": [
    {
-    "label": "Kit",
+    "label": "Kick",
     "src": "rhythm-0.webp"
    },
    {
-    "label": "Macro",
+    "label": "Snare",
+    "src": "rhythm-1.webp"
+   },
+   {
+    "label": "Clap",
     "src": "rhythm-2.webp"
    }
   ]
@@ -306,7 +314,7 @@
     "src": "eq-3-1.webp"
    },
    {
-    "label": "Mid Scoop",
+    "label": "Mud Cut",
     "src": "eq-3-2.webp"
    }
   ]
@@ -316,7 +324,7 @@
   "category": "Audio effects",
   "views": [
    {
-    "label": "Mix",
+    "label": "Init",
     "src": "eq-8-0.webp"
    },
    {
@@ -324,7 +332,7 @@
     "src": "eq-8-1.webp"
    },
    {
-    "label": "Master Tilt",
+    "label": "Electric Guitar Cab",
     "src": "eq-8-2.webp"
    }
   ]
@@ -334,7 +342,7 @@
   "category": "Audio effects",
   "views": [
    {
-    "label": "Vocal Tame",
+    "label": "Init",
     "src": "dynamic-eq-0.webp"
    },
    {
@@ -388,7 +396,7 @@
   "category": "Audio effects",
   "views": [
    {
-    "label": "Podcast \u221216 LUFS",
+    "label": "Init",
     "src": "level-0.webp"
    },
    {
@@ -396,7 +404,7 @@
     "src": "level-1.webp"
    },
    {
-    "label": "Broadcast \u221223 LUFS",
+    "label": "Gentle Rider",
     "src": "level-2.webp"
    }
   ]
@@ -424,16 +432,12 @@
   "category": "Audio effects",
   "views": [
    {
-    "label": "Hall",
+    "label": "Space",
     "src": "reverb-0.webp"
    },
    {
-    "label": "Plate",
+    "label": "Tone \u00b7 Mod",
     "src": "reverb-1.webp"
-   },
-   {
-    "label": "Freeze",
-    "src": "reverb-2.webp"
    }
   ]
  },
@@ -450,7 +454,7 @@
     "src": "chamber-1.webp"
    },
    {
-    "label": "Metal Tank",
+    "label": "EQ \u00b7 Mod",
     "src": "chamber-2.webp"
    }
   ]
@@ -460,16 +464,12 @@
   "category": "Audio effects",
   "views": [
    {
-    "label": "Sync",
+    "label": "Time",
     "src": "delay-0.webp"
    },
    {
-    "label": "ms",
+    "label": "Loop \u00b7 Wow",
     "src": "delay-1.webp"
-   },
-   {
-    "label": "Freeze",
-    "src": "delay-2.webp"
    }
   ]
  },
@@ -478,15 +478,15 @@
   "category": "Audio effects",
   "views": [
    {
-    "label": "Subtle Thicken",
+    "label": "Init",
     "src": "chorus-0.webp"
    },
    {
-    "label": "Ensemble",
+    "label": "Tri-Chorus",
     "src": "chorus-1.webp"
    },
    {
-    "label": "Vibrato",
+    "label": "Jet Chorus",
     "src": "chorus-2.webp"
    }
   ]
@@ -496,7 +496,7 @@
   "category": "Audio effects",
   "views": [
    {
-    "label": "Slow Swirl",
+    "label": "Init",
     "src": "phaser-0.webp"
    },
    {
@@ -514,7 +514,7 @@
   "category": "Audio effects",
   "views": [
    {
-    "label": "Slow Jet",
+    "label": "Init",
     "src": "flanger-0.webp"
    },
    {
@@ -532,15 +532,15 @@
   "category": "Audio effects",
   "views": [
    {
-    "label": "Classic Pan",
+    "label": "Init",
     "src": "orbit-0.webp"
    },
    {
-    "label": "Two-Bar Drift",
+    "label": "Quarter Pan",
     "src": "orbit-1.webp"
    },
    {
-    "label": "Tremolo",
+    "label": "Sidechain Pump",
     "src": "orbit-2.webp"
    }
   ]
@@ -550,7 +550,7 @@
   "category": "Audio effects",
   "views": [
    {
-    "label": "24 dB Low Cut",
+    "label": "Filter",
     "src": "auto-filter-0.webp"
    },
    {
@@ -590,11 +590,11 @@
     "src": "forge-0.webp"
    },
    {
-    "label": "Parallel Warmth",
+    "label": "Fuzz Wall",
     "src": "forge-1.webp"
    },
    {
-    "label": "Multiband Drive",
+    "label": "Wide Air",
     "src": "forge-2.webp"
    }
   ]
@@ -686,6 +686,10 @@
    {
     "label": "Sidechain",
     "src": "shutter-2.webp"
+   },
+   {
+    "label": "Pattern",
+    "src": "shutter-3.webp"
    }
   ]
  },
@@ -694,8 +698,16 @@
   "category": "Audio effects",
   "views": [
    {
-    "label": "Card",
+    "label": "Init",
     "src": "strata-0.webp"
+   },
+   {
+    "label": "Ambient Decay",
+    "src": "strata-1.webp"
+   },
+   {
+    "label": "Reverse Tape",
+    "src": "strata-2.webp"
    }
   ]
  },
@@ -712,12 +724,8 @@
     "src": "lens-1.webp"
    },
    {
-    "label": "Scope \u00b7 Sub Bass",
-    "src": "lens-2.webp"
-   },
-   {
     "label": "Waterfall",
-    "src": "lens-3.webp"
+    "src": "lens-2.webp"
    }
   ]
  },
@@ -744,8 +752,12 @@
   "category": "MIDI effects",
   "views": [
    {
-    "label": "Arp",
+    "label": "Pattern",
     "src": "arp-0.webp"
+   },
+   {
+    "label": "Groove",
+    "src": "arp-1.webp"
    }
   ]
  },
@@ -754,8 +766,16 @@
   "category": "MIDI effects",
   "views": [
    {
-    "label": "Chord",
+    "label": "Init",
     "src": "chord-0.webp"
+   },
+   {
+    "label": "Diminished 7",
+    "src": "chord-1.webp"
+   },
+   {
+    "label": "Strummed Guitar",
+    "src": "chord-2.webp"
    }
   ]
  },
@@ -764,8 +784,16 @@
   "category": "MIDI effects",
   "views": [
    {
-    "label": "Scale",
+    "label": "Init",
     "src": "scale-0.webp"
+   },
+   {
+    "label": "B Locrian",
+    "src": "scale-1.webp"
+   },
+   {
+    "label": "C Diminished",
+    "src": "scale-2.webp"
    }
   ]
  },
@@ -774,8 +802,16 @@
   "category": "MIDI effects",
   "views": [
    {
-    "label": "Length",
+    "label": "Init",
     "src": "length-0.webp"
+   },
+   {
+    "label": "Fixed 250ms",
+    "src": "length-1.webp"
+   },
+   {
+    "label": "Dynamic Length",
+    "src": "length-2.webp"
    }
   ]
  },
@@ -784,8 +820,16 @@
   "category": "MIDI effects",
   "views": [
    {
-    "label": "Velocity",
+    "label": "Init",
     "src": "velocity-0.webp"
+   },
+   {
+    "label": "Hard Hitter",
+    "src": "velocity-1.webp"
+   },
+   {
+    "label": "Mid Band",
+    "src": "velocity-2.webp"
    }
   ]
  },
@@ -794,8 +838,16 @@
   "category": "MIDI effects",
   "views": [
    {
-    "label": "Random",
+    "label": "Init",
     "src": "random-0.webp"
+   },
+   {
+    "label": "Pitch Roulette",
+    "src": "random-1.webp"
+   },
+   {
+    "label": "Octave Scatter",
+    "src": "random-2.webp"
    }
   ]
  }
