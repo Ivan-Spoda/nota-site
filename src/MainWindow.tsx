@@ -410,7 +410,7 @@ export function MainWindow() {
           </div>
         </div>
         {/* The Devices panel as the real app draws it (captured from Nota at 2x). */}
-        <img src={PANEL} alt="Devices panel: Nota Volt and Nota Flanger" width={1656} height={320} draggable={false}
+        <img src={PANEL} alt="Devices panel: Nota Volt and Nota Delay" width={1656} height={320} draggable={false}
           style={{ display: 'block', width: '1656px', height: '320px', flex: 'none' }} />
         <div style={{ height: '12px', flex: 'none', display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 4px' }}>
           <span style={{ fontSize: '10px', color: '#92969D' }}>Opened demo02.nota</span>

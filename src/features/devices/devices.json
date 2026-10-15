@@ -4,15 +4,15 @@
   "category": "Instruments",
   "views": [
    {
-    "label": "Osc",
+    "label": "Warm Pad",
     "src": "synth-0.webp"
    },
    {
-    "label": "Env",
+    "label": "Square Bass",
     "src": "synth-1.webp"
    },
    {
-    "label": "Filter",
+    "label": "Filter Sweep",
     "src": "synth-2.webp"
    }
   ]
@@ -38,7 +38,7 @@
     "src": "volt-3.webp"
    },
    {
-    "label": "Mod",
+    "label": "Growl Bass",
     "src": "volt-4.webp"
    },
    {
@@ -68,7 +68,7 @@
     "src": "aurora-3.webp"
    },
    {
-    "label": "Mod",
+    "label": "Rubber Bass",
     "src": "aurora-4.webp"
    },
    {
@@ -90,7 +90,7 @@
     "src": "operator-1.webp"
    },
    {
-    "label": "Filter Amp",
+    "label": "Harpsichord",
     "src": "operator-2.webp"
    }
   ]
@@ -104,7 +104,7 @@
     "src": "bass-0.webp"
    },
    {
-    "label": "Mod",
+    "label": "Stab Bass",
     "src": "bass-1.webp"
    }
   ]
@@ -158,7 +158,7 @@
     "src": "pentad-0.webp"
    },
    {
-    "label": "Filter Amp",
+    "label": "Sub Drone",
     "src": "pentad-1.webp"
    },
    {
@@ -172,27 +172,27 @@
   "category": "Instruments",
   "views": [
    {
-    "label": "Osc Mix",
+    "label": "Para Strings",
     "src": "consort-0.webp"
    },
    {
-    "label": "Patch matrix",
+    "label": "Poly Pad",
     "src": "consort-1.webp"
    },
    {
-    "label": "Patch cables",
+    "label": "FM Growl",
     "src": "consort-2.webp"
    },
    {
-    "label": "Patch overlay",
+    "label": "Sync Lead",
     "src": "consort-3.webp"
    },
    {
-    "label": "Filters Env",
+    "label": "Poly Keys",
     "src": "consort-4.webp"
    },
    {
-    "label": "LFO Delay",
+    "label": "Random Arp",
     "src": "consort-5.webp"
    },
    {
@@ -284,12 +284,8 @@
   "category": "Instruments",
   "views": [
    {
-    "label": "Kick synth",
+    "label": "Kit",
     "src": "rhythm-0.webp"
-   },
-   {
-    "label": "Clap sample",
-    "src": "rhythm-1.webp"
    },
    {
     "label": "Macro",
@@ -306,11 +302,11 @@
     "src": "eq-3-0.webp"
    },
    {
-    "label": "Low Kill",
+    "label": "Breakdown Thin",
     "src": "eq-3-1.webp"
    },
    {
-    "label": "Mid Scoop \u00b7 48 dB",
+    "label": "Mid Scoop",
     "src": "eq-3-2.webp"
    }
   ]
@@ -324,11 +320,11 @@
     "src": "eq-8-0.webp"
    },
    {
-    "label": "Vocal \u00b7 M/S",
+    "label": "Vocal Wide",
     "src": "eq-8-1.webp"
    },
    {
-    "label": "Master \u00b7 48 dB",
+    "label": "Master Tilt",
     "src": "eq-8-2.webp"
    }
   ]
@@ -338,15 +334,15 @@
   "category": "Audio effects",
   "views": [
    {
-    "label": "Vocal \u00b7 Duck",
+    "label": "Vocal Tame",
     "src": "dynamic-eq-0.webp"
    },
    {
-    "label": "Bus \u00b7 Lift",
+    "label": "Harshness Guard",
     "src": "dynamic-eq-1.webp"
    },
    {
-    "label": "Static \u00b7 Solo",
+    "label": "Bass Clarity",
     "src": "dynamic-eq-2.webp"
    }
   ]
@@ -392,15 +388,15 @@
   "category": "Audio effects",
   "views": [
    {
-    "label": "Podcast",
+    "label": "Podcast \u221216 LUFS",
     "src": "level-0.webp"
    },
    {
-    "label": "Streaming",
+    "label": "Cinema Dialogue \u221227",
     "src": "level-1.webp"
    },
    {
-    "label": "Broadcast \u00b7 Manual",
+    "label": "Broadcast \u221223 LUFS",
     "src": "level-2.webp"
    }
   ]
@@ -454,7 +450,7 @@
     "src": "chamber-1.webp"
    },
    {
-    "label": "EQ Mod",
+    "label": "Metal Tank",
     "src": "chamber-2.webp"
    }
   ]
@@ -482,7 +478,7 @@
   "category": "Audio effects",
   "views": [
    {
-    "label": "Classic duo",
+    "label": "Subtle Thicken",
     "src": "chorus-0.webp"
    },
    {
@@ -500,15 +496,15 @@
   "category": "Audio effects",
   "views": [
    {
-    "label": "Classic 4-stage",
+    "label": "Slow Swirl",
     "src": "phaser-0.webp"
    },
    {
-    "label": "Deep 12-stage",
+    "label": "Resonant Twelve",
     "src": "phaser-1.webp"
    },
    {
-    "label": "Negative",
+    "label": "Triplet Flutter",
     "src": "phaser-2.webp"
    }
   ]
@@ -518,15 +514,15 @@
   "category": "Audio effects",
   "views": [
    {
-    "label": "Classic jet",
+    "label": "Slow Jet",
     "src": "flanger-0.webp"
    },
    {
-    "label": "Negative sweep",
+    "label": "Negative Jet",
     "src": "flanger-1.webp"
    },
    {
-    "label": "Metallic",
+    "label": "Eighth Pulse",
     "src": "flanger-2.webp"
    }
   ]
@@ -536,11 +532,11 @@
   "category": "Audio effects",
   "views": [
    {
-    "label": "Auto-pan",
+    "label": "Classic Pan",
     "src": "orbit-0.webp"
    },
    {
-    "label": "Tempo sync",
+    "label": "Two-Bar Drift",
     "src": "orbit-1.webp"
    },
    {
@@ -554,7 +550,7 @@
   "category": "Audio effects",
   "views": [
    {
-    "label": "Filter",
+    "label": "24 dB Low Cut",
     "src": "auto-filter-0.webp"
    },
    {
@@ -594,11 +590,11 @@
     "src": "forge-0.webp"
    },
    {
-    "label": "Parallel \u00b7 Drum bus",
+    "label": "Parallel Warmth",
     "src": "forge-1.webp"
    },
    {
-    "label": "Multiband \u00b7 Master",
+    "label": "Multiband Drive",
     "src": "forge-2.webp"
    }
   ]
@@ -716,7 +712,7 @@
     "src": "lens-1.webp"
    },
    {
-    "label": "Cursors",
+    "label": "Scope \u00b7 Sub Bass",
     "src": "lens-2.webp"
    },
    {

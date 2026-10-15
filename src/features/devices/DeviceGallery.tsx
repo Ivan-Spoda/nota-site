@@ -76,8 +76,8 @@ export function DeviceGallery() {
               ))}
             </div>
           </div>
-          <div style={{ position: "relative", aspectRatio: "702 / 262", borderRadius: "3px", overflow: "hidden", background: "#141517", border: "1px solid var(--line)" }}>
-            <img key={v.src} src={BASE + v.src} alt={`Nota ${dev.name} — ${v.label}`} width={1404} height={524} decoding="async"
+          <div style={{ position: "relative", aspectRatio: "700 / 260", borderRadius: "3px", overflow: "hidden", background: "#141517", border: "1px solid var(--line)" }}>
+            <img key={v.src} src={BASE + v.src} alt={`Nota ${dev.name} — ${v.label}`} width={1400} height={520} decoding="async"
               style={{ display: "block", width: "100%", height: "100%" }} />
           </div>
           {dev.views.length > 1 && (
