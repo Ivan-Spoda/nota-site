@@ -1,19 +1,20 @@
 import { useState } from "react";
 import { ScaleToFit } from "../components/ScaleToFit";
+import { useShot } from "../lib/theme";
 
-// Screenshots of the real Nota Remote web app (src/web/remote) in Studio Dark,
+// Screenshots of the real Nota Remote web app (src/web/remote) in Studio Dark and Studio Light,
 // captured at 2x on a 390 x 844 phone viewport.
 const SCREENS = ["Pads", "Keys", "XY", "Mixer", "Macros", "Scenes"];
-const shot = (s: string) => import.meta.env.BASE_URL + "remote/" + s.toLowerCase() + ".webp";
 
 export function Remote() {
   const [screen, setScreen] = useState("Pads");
+  const shot = useShot();
   return (
     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(min(100%,400px),1fr))', gap: '48px', alignItems: 'center' }}>
       <div style={{ display: 'flex', justifyContent: 'center', minWidth: '0' }}>
         <ScaleToFit width={412} height={866}>
           <div style={{ padding: '10px', background: '#141517', border: '1px solid #141517', borderRadius: '52px' }}>
-            <img src={shot(screen)} width={390} height={844} alt={"Nota Remote, " + screen + " screen"} style={{ display: 'block', borderRadius: '44px' }} />
+            <img src={shot("remote/" + screen.toLowerCase() + ".webp")} width={390} height={844} alt={"Nota Remote, " + screen + " screen"} style={{ display: 'block', borderRadius: '44px' }} />
           </div>
         </ScaleToFit>
       </div>

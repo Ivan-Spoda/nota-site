@@ -8,7 +8,7 @@ export function Hero({ release }: { release: Release }) {
   const winRef = useRef<HTMLDivElement>(null);
   const [size, setSize] = useState({ scale: 0.5, winH: 1010 });
 
-  // The main window mock is laid out at its native 1680 px and scaled to fit.
+  // The main window screenshot is laid out at its native 1680 px and scaled to fit.
   useEffect(() => {
     const hero = heroRef.current, win = winRef.current;
     if (!hero || !win) return;
@@ -55,7 +55,7 @@ export function Hero({ release }: { release: Release }) {
           ))}
         </div>
       </div>
-      <div ref={heroRef} style={{ position: 'relative', width: '100%', height: heroH, borderRadius: '4px', overflow: 'hidden', border: '1px solid var(--line)', boxShadow: '0 40px 100px #00000060', background: '#141517' }}>
+      <div ref={heroRef} style={{ position: 'relative', width: '100%', height: heroH, borderRadius: '4px', overflow: 'hidden', border: '1px solid var(--line)', boxShadow: '0 40px 100px #00000060', background: 'var(--line)' }}>
         <div ref={winRef} style={{ position: 'absolute', left: '0', top: '0', width: '1680px', transformOrigin: '0 0', transform: `scale(${heroScale})` }}>
           <MainWindow />
         </div>

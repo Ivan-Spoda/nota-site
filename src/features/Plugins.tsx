@@ -1,10 +1,11 @@
 import { ScaleToFit } from "../components/ScaleToFit";
+import { useShot } from "../lib/theme";
 
-// Settings > Downloads rendered from the real app in Studio Dark at 2x, listing the
+// Settings > Downloads rendered from the real app in the site theme at 2x, listing the
 // plug-ins in nota-plugins-registry.
-const SHOT = import.meta.env.BASE_URL + "settings/downloads.webp";
 
 export function Plugins() {
+  const shot = useShot();
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(min(100%,400px),1fr))', gap: '48px', alignItems: 'end' }}>
@@ -16,7 +17,7 @@ export function Plugins() {
       </div>
       <div style={{ display: 'flex', justifyContent: 'center' }}>
         <ScaleToFit width={880} height={640}>
-          <img src={SHOT} width={880} height={640} alt="Settings, Downloads page: the plug-in registry with Install buttons" style={{ display: 'block', borderRadius: '4px', border: '1px solid #141517', boxShadow: '0 30px 80px #00000050', boxSizing: 'border-box' }} />
+          <img src={shot("settings/downloads.webp")} width={880} height={640} alt="Settings, Downloads page: the plug-in registry with Install buttons" style={{ display: 'block', borderRadius: '4px', border: '1px solid var(--line)', boxShadow: '0 30px 80px #00000050', boxSizing: 'border-box' }} />
         </ScaleToFit>
       </div>
     </div>

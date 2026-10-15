@@ -1,11 +1,11 @@
 import { useEffect, useMemo, useState } from "react";
 import DEVICES from "./devices.json";
+import { useShot } from "../../lib/theme";
 
-// Device looks are screenshots of the nota-design mockups (Monolith and Strata, which have
-// no mockup, are cards captured from the app). Regenerate them when a mockup changes.
+// Device cards rendered headlessly from the app at 2x, in Studio Dark and Studio Light
+// ("<id>-light.webp"); one view per tab, or per factory preset for devices without tabs.
 type Device = { name: string; category: string; views: { label: string; src: string }[] };
 const ALL = DEVICES as Device[];
-const BASE = import.meta.env.BASE_URL + "devices/";
 
 const CATEGORIES = [
   { title: "Instruments", color: "#6A9FD8" },
@@ -32,6 +32,7 @@ export function DeviceGallery() {
   const [cat, setCat] = useState(CATEGORIES[0].title);
   const [name, setName] = useState("Volt");
   const [view, setView] = useState(0);
+  const shot = useShot();
   const inCat = useMemo(() => ALL.filter((d) => d.category === cat), [cat]);
   const dev = ALL.find((d) => d.name === name) ?? inCat[0];
   const color = CATEGORIES.find((c) => c.title === dev.category)!.color;
@@ -48,8 +49,8 @@ export function DeviceGallery() {
   useEffect(() => {
     const i = inCat.findIndex((d) => d.name === dev.name);
     const near = [dev, inCat[(i + 1) % inCat.length], inCat[(i - 1 + inCat.length) % inCat.length]];
-    near.forEach((d, k) => d.views.slice(0, k ? 1 : undefined).forEach((x) => { new Image().src = BASE + x.src; }));
-  }, [dev, inCat]);
+    near.forEach((d, k) => d.views.slice(0, k ? 1 : undefined).forEach((x) => { new Image().src = shot("devices/" + x.src); }));
+  }, [dev, inCat, shot]);
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
@@ -76,8 +77,8 @@ export function DeviceGallery() {
               ))}
             </div>
           </div>
-          <div style={{ position: "relative", aspectRatio: "700 / 260", borderRadius: "3px", overflow: "hidden", background: "#141517", border: "1px solid var(--line)" }}>
-            <img key={v.src} src={BASE + v.src} alt={`Nota ${dev.name} — ${v.label}`} width={1400} height={520} decoding="async"
+          <div style={{ position: "relative", aspectRatio: "700 / 260", borderRadius: "3px", overflow: "hidden", background: "var(--line)", border: "1px solid var(--line)" }}>
+            <img key={v.src} src={shot("devices/" + v.src)} alt={`Nota ${dev.name} — ${v.label}`} width={1400} height={520} decoding="async"
               style={{ display: "block", width: "100%", height: "100%" }} />
           </div>
           {dev.views.length > 1 && (

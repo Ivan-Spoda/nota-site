@@ -1,22 +1,39 @@
-import { useEffect, useState } from "react";
+import { createContext, useCallback, useContext, useEffect, useState } from "react";
 
 export type Theme = "dark" | "light";
 const KEY = "nota-site-theme";
+const query = () => window.matchMedia("(prefers-color-scheme: light)");
 
-function initial(): Theme {
+function saved(): Theme | null {
   try {
-    const saved = localStorage.getItem(KEY);
-    if (saved === "dark" || saved === "light") return saved;
+    const t = localStorage.getItem(KEY);
+    if (t === "dark" || t === "light") return t;
   } catch { /* storage blocked */ }
-  return "dark";
+  return null;
 }
+const system = (): Theme => (query().matches ? "light" : "dark");
 
+/** The site theme: the visitor's pick if they made one, otherwise the system's. */
 export function useTheme() {
-  const [theme, setTheme] = useState<Theme>(initial);
+  const [theme, setTheme] = useState<Theme>(() => saved() ?? system());
   useEffect(() => { document.documentElement.setAttribute("data-theme", theme); }, [theme]);
+  useEffect(() => {
+    const mq = query();
+    const follow = () => { if (!saved()) setTheme(system()); };
+    mq.addEventListener("change", follow);
+    return () => mq.removeEventListener("change", follow);
+  }, []);
   const choose = (t: Theme) => {
     setTheme(t);
     try { localStorage.setItem(KEY, t); } catch { /* storage blocked */ }
   };
   return [theme, choose] as const;
+}
+
+export const ThemeContext = createContext<Theme>("dark");
+
+/** An app screenshot in the site's current theme: light renders sit next to the dark ones as "<name>-light.webp". */
+export function useShot() {
+  const theme = useContext(ThemeContext);
+  return useCallback((path: string) => import.meta.env.BASE_URL + (theme === "light" ? path.replace(/\.webp$/, "-light.webp") : path), [theme]);
 }
