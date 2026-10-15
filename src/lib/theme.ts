@@ -39,8 +39,8 @@ export function useTheme() {
 
 export const ThemeContext = createContext<Theme>("dark");
 
-/** An app screenshot in the site's current theme: light renders sit next to the dark ones as "<name>-light.webp". */
+/** An app screenshot in the site's current theme: light renders sit next to the dark ones as "<name>-light.avif". */
 export function useShot() {
   const theme = useContext(ThemeContext);
-  return useCallback((path: string) => import.meta.env.BASE_URL + (theme === "light" ? path.replace(/\.webp$/, "-light.webp") : path), [theme]);
+  return useCallback((path: string) => import.meta.env.BASE_URL + (theme === "light" ? path.replace(/\.avif$/, "-light.avif") : path), [theme]);
 }

@@ -14,7 +14,7 @@ export function Remote() {
       <div style={{ display: 'flex', justifyContent: 'center', minWidth: '0' }}>
         <ScaleToFit width={412} height={866}>
           <div style={{ padding: '10px', background: '#141517', border: '1px solid #141517', borderRadius: '52px' }}>
-            <img src={shot("remote/" + screen.toLowerCase() + ".webp")} width={390} height={844} alt={"Nota Remote, " + screen + " screen"} style={{ display: 'block', borderRadius: '44px' }} />
+            <img src={shot("remote/" + screen.toLowerCase() + ".avif")} width={390} height={844} loading="lazy" decoding="async" alt={"Nota Remote, " + screen + " screen"} style={{ display: 'block', borderRadius: '44px' }} />
           </div>
         </ScaleToFit>
       </div>

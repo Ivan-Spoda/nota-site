@@ -3,7 +3,7 @@ import DEVICES from "./devices.json";
 import { useShot } from "../../lib/theme";
 
 // Device cards rendered headlessly from the app at 2x, in Studio Dark and Studio Light
-// ("<id>-light.webp"); one view per tab, or per factory preset for devices without tabs.
+// ("<id>-light.avif"); one view per tab, or per factory preset for devices without tabs.
 type Device = { name: string; category: string; views: { label: string; src: string }[] };
 const ALL = DEVICES as Device[];
 
