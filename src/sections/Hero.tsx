@@ -7,7 +7,7 @@ export function Hero({ release }: { release: Release }) {
   const { version, osKey, dl } = release;
   const heroRef = useRef<HTMLDivElement>(null);
   const winRef = useRef<HTMLDivElement>(null);
-  const [size, setSize] = useState({ scale: 0.5, winH: 1010 });
+  const [size, setSize] = useState({ scale: 0.5, winH: 1050 });
 
   // The main window screenshot is laid out at its native 1680 px and scaled to fit.
   useEffect(() => {
