@@ -57,7 +57,9 @@ export type Release = ReturnType<typeof useRelease>;
  *  (src/data/github.json) and swaps in the live one when the GitHub API answers. */
 export function useRelease() {
   const [os] = useState<Os>(detectOS);
-  const [arch, setArch] = useState("arm");
+  // Unknown until the browser reports it: Windows and Linux pick ARM only on a positive "arm",
+  // while macOS defaults to Apple Silicon unless it reports "x86".
+  const [arch, setArch] = useState("");
   const [assets, setAssets] = useState<Partial<Record<BuildKey, Asset>>>(() => pick(GITHUB.release.assets));
   const [version, setVersion] = useState(GITHUB.release.version);
   const [date, setDate] = useState<string | null>(GITHUB.release.date);
