@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 
-const RIVALS = [["Nota", "0.43"], ["Ableton Live", "12"], ["Logic Pro", "11"], ["Bitwig Studio", "5"]];
+const RIVALS = [["Features"], ["Nota", "0.43"], ["Ableton Live", "12"], ["Logic Pro", "11"], ["Bitwig Studio", "5"]];
 const Y = "✓", NO = "—";
 const COMPARE: [string, string[]][] = [
   ["Price", ["Free", "$99 – $749", "$199.99", "$99 – $399"]],
@@ -16,7 +16,7 @@ const COMPARE: [string, string[]][] = [
   ["One-click free plug-in installs", [Y, NO, NO, NO]],
   ["VST3 hosting", [Y, Y, NO, Y]],
 ];
-const rivals = RIVALS.map(([name, sub], i) => ({ name, sub, bg: i ? "transparent" : "var(--accentSoft)", ink: i ? "var(--ink2)" : "var(--ink)" }));
+const rivals = RIVALS.map(([name, sub], i) => ({ name, sub, bg: i !== 1 ? "transparent" : "var(--accentSoft)", ink: i !== 1 ? "var(--ink2)" : "var(--ink)" }));
 const compare = COMPARE.map(([label, cells]) => ({
   label,
   cells: cells.map((t, i) => ({
@@ -35,7 +35,7 @@ export function Compare() {
       <div style={{ overflowX: 'auto', border: '1px solid var(--line)', borderRadius: '3px', background: 'var(--surface)' }}>
         <div style={{ minWidth: '720px' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'minmax(200px,1.6fr) repeat(4,minmax(110px,1fr))', borderBottom: '1px solid var(--line)' }}>
-            <span style={{ padding: '18px 20px' }} />
+            {/* <span style={{ padding: '18px 20px' }} /> */}
             {rivals.map((r, rI) => (
               <Fragment key={rI}>
                 <div style={{ padding: '18px 16px', display: 'flex', flexDirection: 'column', gap: '3px', background: r.bg, borderLeft: '1px solid var(--hair)' }}>
