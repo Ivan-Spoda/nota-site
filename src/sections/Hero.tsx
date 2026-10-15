@@ -1,6 +1,7 @@
 import { Fragment, useEffect, useRef, useState } from "react";
 import { META, type BuildKey, type Release } from "../lib/release";
 import { MainWindow } from "../MainWindow";
+import { COUNTS } from "../lib/counts";
 
 export function Hero({ release }: { release: Release }) {
   const { version, osKey, dl } = release;
@@ -36,7 +37,7 @@ export function Hero({ release }: { release: Release }) {
       <div style={{ display: 'flex', flexDirection: 'column', gap: '22px', maxWidth: '820px' }}>
         <div style={{ fontSize: '12px', fontWeight: '500', color: 'var(--eyebrow)' }}>Nota {version} · Free and open source</div>
         <h1 style={{ margin: '0', fontSize: 'clamp(40px,6.4vw,76px)', fontWeight: '600', letterSpacing: '-.035em', lineHeight: '1', color: 'var(--ink)', textWrap: 'balance' }}>The free DAW for macOS, Windows and Linux.</h1>
-        <p style={{ margin: '0', fontSize: '18px', lineHeight: '1.6', color: 'var(--ink3)', maxWidth: '680px', textWrap: 'pretty' }}>Arrange, record, mix and master with 15 instruments, 25 audio effects and 6 MIDI effects built in. Stem separation and audio-to-MIDI run on your own computer, and every save is kept as a version you can return to.</p>
+        <p style={{ margin: '0', fontSize: '18px', lineHeight: '1.6', color: 'var(--ink3)', maxWidth: '680px', textWrap: 'pretty' }}>Arrange, record, mix and master with {COUNTS.instruments} instruments, {COUNTS.audioEffects} audio effects and {COUNTS.midiEffects} MIDI effects built in. Stem separation and audio-to-MIDI run on your own computer, and every save is kept as a version you can return to.</p>
         <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '12px', paddingTop: '6px' }}>
           <a className="h6" href={primary.href} style={{ height: '48px', padding: '0 22px', display: 'flex', alignItems: 'center', gap: '14px', borderRadius: '3px', background: 'var(--accent)', color: 'var(--onAccent)' }}>
             <span style={{ fontSize: '15px', fontWeight: '600' }}>{primary.label}</span>

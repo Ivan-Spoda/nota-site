@@ -226,6 +226,20 @@
   ]
  },
  {
+  "name": "Keys",
+  "category": "Instruments",
+  "views": [
+   {
+    "label": "Sound",
+    "src": "keys-0.avif"
+   },
+   {
+    "label": "FX",
+    "src": "keys-1.avif"
+   }
+  ]
+ },
+ {
   "name": "Pendulum",
   "category": "Instruments",
   "views": [
@@ -258,6 +272,24 @@
    {
     "label": "Filter",
     "src": "sampler-3.avif"
+   }
+  ]
+ },
+ {
+  "name": "Mosaic",
+  "category": "Instruments",
+  "views": [
+   {
+    "label": "Zones",
+    "src": "mosaic-0.avif"
+   },
+   {
+    "label": "Sample",
+    "src": "mosaic-1.avif"
+   },
+   {
+    "label": "Env",
+    "src": "mosaic-2.avif"
    }
   ]
  },

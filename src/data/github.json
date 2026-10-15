@@ -1,0 +1,21 @@
+{
+ "fetchedAt": null,
+ "release": {
+  "version": "0.53.1",
+  "date": null,
+  "assets": []
+ },
+ "contributors": [
+  {
+   "name": "Egor Khindikaynen",
+   "contributions": 284
+  },
+  {
+   "name": "Chris Laupama",
+   "login": "chrislaupama",
+   "avatar": "https://github.com/chrislaupama.png",
+   "url": "https://github.com/chrislaupama",
+   "contributions": 1
+  }
+ ]
+}

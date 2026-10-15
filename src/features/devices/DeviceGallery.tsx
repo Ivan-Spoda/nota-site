@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import DEVICES from "./devices.json";
 import { useShot } from "../../lib/theme";
+import { COUNTS } from "../../lib/counts";
 
 // Device cards rendered headlessly from the app at 2x, in Studio Dark and Studio Light
 // ("<id>-light.avif"); one view per tab, or per factory preset for devices without tabs.
@@ -17,7 +18,7 @@ const CATEGORIES = [
 const KIND: Record<string, string> = {
   Synth: "subtractive synth", Volt: "analog synth", Aurora: "wavetable synth", Operator: "FM synth", Bass: "bass synth",
   Flux: "vector-morph synth", Grain: "granular synth", Pentad: "poly synth", Consort: "paraphonic synth", Monolith: "mono synth",
-  Physical: "physical-modelling synth", Pendulum: "arp synth", Sampler: "sampler", "Drum Rack": "drum pads", Rhythm: "drum machine",
+  Physical: "physical-modelling synth", Keys: "electric piano", Pendulum: "arp synth", Sampler: "sampler", Mosaic: "multisample instrument", "Drum Rack": "drum pads", Rhythm: "drum machine",
   "EQ-3": "3-band EQ", "EQ-8": "8-band EQ", "Dynamic EQ": "dynamic EQ", Compressor: "compressor", Ceiling: "limiter", Level: "gain and loudness",
   Prism: "multiband dynamics", Reverb: "reverb", Chamber: "hybrid reverb", Delay: "delay", Chorus: "chorus", Phaser: "phaser", Flanger: "flanger",
   Orbit: "auto-pan", "Auto Filter": "envelope / LFO filter", "Auto Shift": "pitch correction", Forge: "saturator", Valve: "amplifier",
@@ -57,7 +58,7 @@ export function DeviceGallery() {
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(min(100%,400px),1fr))", gap: "48px", alignItems: "end" }}>
         <div style={{ display: "flex", flexDirection: "column", gap: "16px", maxWidth: "520px" }}>
           <div style={{ fontSize: "11px", fontWeight: "500", color: "var(--ink4)" }}>Instruments and effects</div>
-          <h3 style={{ margin: 0, fontSize: "32px", fontWeight: 600, letterSpacing: "-.02em", lineHeight: 1.1 }}>46 devices in the box, each with live graphs and presets.</h3>
+          <h3 style={{ margin: 0, fontSize: "32px", fontWeight: 600, letterSpacing: "-.02em", lineHeight: 1.1 }}>{COUNTS.devices} devices in the box, each with live graphs and presets.</h3>
         </div>
         <p style={{ margin: 0, fontSize: "16px", lineHeight: 1.65, color: "var(--ink3)", textWrap: "pretty", maxWidth: "520px" }}>Subtractive, FM, wavetable, granular, physical and vector synths, a sampler and two drum machines with 29 kits. Every effect shows what it does to the sound, and most ship with around 30 presets. Pick a device to see it.</p>
       </div>

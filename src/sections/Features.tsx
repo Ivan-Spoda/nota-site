@@ -6,6 +6,7 @@ import { Plugins } from "../features/Plugins";
 import { Mcp } from "../features/Mcp";
 import { Remote } from "../features/Remote";
 import { OpenSource } from "../features/OpenSource";
+import { Contributors } from "../features/Contributors";
 
 export function Features() {
   return (
@@ -22,6 +23,7 @@ export function Features() {
       <Plugins />
       <Mcp />
       <OpenSource />
+      <Contributors />
     </section>
   );
 }
