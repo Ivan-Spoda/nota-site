@@ -12,7 +12,7 @@ const COMPARE: [string, string[]][] = [
   ["Audio to MIDI with chords", [Y, Y, "Melody only", NO]],
   ["Project version tree", [Y, NO, "Alternatives", NO]],
   ["Built-in MCP for AI assistants", [Y, NO, NO, NO]],
-  ["Phone remote", [Y, NO, Y, NO]],
+  ["Phone remote", [Y, "6.99$", Y, NO]],
   ["One-click free plug-in installs", [Y, NO, NO, NO]],
   ["VST3 hosting", [Y, Y, NO, Y]],
 ];
